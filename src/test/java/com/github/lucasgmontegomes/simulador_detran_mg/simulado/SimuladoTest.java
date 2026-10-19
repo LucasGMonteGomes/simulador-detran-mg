@@ -10,6 +10,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.github.lucasgmontegomes.simulador_detran_mg.conteudo.Alternativa;
+import com.github.lucasgmontegomes.simulador_detran_mg.conteudo.ConteudoQuestao;
+import com.github.lucasgmontegomes.simulador_detran_mg.conteudo.ConteudoQuestao.Opcao;
+import com.github.lucasgmontegomes.simulador_detran_mg.conteudo.OrigemQuestao;
 import com.github.lucasgmontegomes.simulador_detran_mg.conteudo.Questao;
 
 class SimuladoTest {
@@ -117,11 +120,10 @@ class SimuladoTest {
 	}
 
 	private static Questao novaQuestao(String codigo) {
+		ConteudoQuestao conteudo = new ConteudoQuestao("Enunciado " + codigo, null,
+				List.of(new Opcao("Certa", true), new Opcao("Errada", false)), "Explicação", null, null);
 		// Subtema não participa das regras do simulado, então fica nulo neste teste sem banco.
-		Questao questao = new Questao(null, codigo, 1, "Enunciado " + codigo, null, "Explicação", null);
-		questao.adicionarAlternativa(1, "Certa", true);
-		questao.adicionarAlternativa(2, "Errada", false);
-		return questao;
+		return new Questao(null, codigo, 1, OrigemQuestao.MANUAL, conteudo);
 	}
 
 	private static Alternativa correta(Questao questao) {

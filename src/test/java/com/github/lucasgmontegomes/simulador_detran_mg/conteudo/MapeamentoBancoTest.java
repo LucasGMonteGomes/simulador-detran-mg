@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import com.github.lucasgmontegomes.simulador_detran_mg.TestcontainersConfiguration;
+import com.github.lucasgmontegomes.simulador_detran_mg.conteudo.ConteudoQuestao.Opcao;
 import com.github.lucasgmontegomes.simulador_detran_mg.simulado.ModoSimulado;
 import com.github.lucasgmontegomes.simulador_detran_mg.simulado.Simulado;
 import com.github.lucasgmontegomes.simulador_detran_mg.simulado.SimuladoRepository;
@@ -57,36 +58,55 @@ class MapeamentoBancoTest {
 	}
 
 	@Test
-	void salvaQuestaoComAlternativasEmOrdem() {
-		Questao questao = novaQuestao("LEG-0001");
-		questao.adicionarAlternativa(2, "Reduzir a velocidade", true);
-		questao.adicionarAlternativa(1, "Manter a velocidade", false);
+	void salvaQuestaoComConteudoOrigemEStatus() {
+		ConteudoQuestao conteudo = conteudo(new Opcao("Manter a velocidade", false),
+				new Opcao("Reduzir a velocidade", true));
+		Questao questao = new Questao(subtema(), "LEG-0001", 1, OrigemQuestao.IA, conteudo);
+		questao.atualizarRevisao(OrigemQuestao.IA, true);
 		questoes.save(questao);
 		em.flush();
 		em.clear();
 
 		Questao salva = questoes.findByCodigoAndAtivaTrue("LEG-0001").orElseThrow();
 
+		assertThat(salva.conteudo()).isEqualTo(conteudo);
 		assertThat(salva.getAlternativas()).extracting(Alternativa::getOrdem).containsExactly(1, 2);
-		assertThat(salva.alternativaCorreta()).map(Alternativa::getTexto).contains("Reduzir a velocidade");
+		assertThat(salva.getOrigem()).isEqualTo(OrigemQuestao.IA);
+		assertThat(salva.getStatus()).isEqualTo(StatusQuestao.REVISADA);
 	}
 
 	@Test
 	void bancoRejeitaDuasAlternativasCorretas() {
-		Questao questao = novaQuestao("LEG-0002");
-		questao.adicionarAlternativa(1, "A", true);
-		questao.adicionarAlternativa(2, "B", true);
+		Questao questao = new Questao(subtema(), "LEG-0002", 1, OrigemQuestao.MANUAL,
+				conteudo(new Opcao("A", true), new Opcao("B", true)));
 
 		assertThatThrownBy(() -> questoes.saveAndFlush(questao))
 			.isInstanceOf(DataIntegrityViolationException.class);
 	}
 
 	@Test
+	void bancoRejeitaDuasVersoesAtivasDoMesmoCodigo() {
+		questoes.saveAndFlush(novaQuestao("LEG-0003", 1));
+
+		assertThatThrownBy(() -> questoes.saveAndFlush(novaQuestao("LEG-0003", 2)))
+			.isInstanceOf(DataIntegrityViolationException.class);
+	}
+
+	@Test
+	void maiorVersaoConsideraVersoesInativas() {
+		Questao v1 = novaQuestao("LEG-0004", 1);
+		v1.desativar();
+		questoes.saveAndFlush(v1);
+		questoes.saveAndFlush(novaQuestao("LEG-0004", 2));
+
+		assertThat(questoes.findMaiorVersao("LEG-0004")).isEqualTo(2);
+		assertThat(questoes.findMaiorVersao("NAO-EXISTE")).isZero();
+	}
+
+	@Test
 	void salvaSimuladoComRespostasEmAndamento() {
-		Questao questao = novaQuestao("LEG-0003");
-		Alternativa certa = questao.adicionarAlternativa(1, "Certa", true);
-		questao.adicionarAlternativa(2, "Errada", false);
-		questoes.save(questao);
+		Questao questao = questoes.save(novaQuestao("LEG-0005", 1));
+		Alternativa certa = questao.alternativaCorreta().orElseThrow();
 
 		Instant inicio = Instant.parse("2026-10-19T14:00:00Z");
 		Simulado simulado = new Simulado(ModoSimulado.PROVA, List.of(questao), 1, Duration.ofMinutes(40), inicio);
@@ -108,10 +128,8 @@ class MapeamentoBancoTest {
 
 	@Test
 	void salvaSimuladoFinalizadoComGabaritoCongelado() {
-		Questao questao = novaQuestao("LEG-0006");
-		questao.adicionarAlternativa(1, "Certa", true);
-		Alternativa errada = questao.adicionarAlternativa(2, "Errada", false);
-		questoes.save(questao);
+		Questao questao = questoes.save(novaQuestao("LEG-0006", 1));
+		Alternativa errada = questao.getAlternativas().stream().filter(a -> !a.isCorreta()).findFirst().orElseThrow();
 
 		Instant inicio = Instant.parse("2026-10-19T14:00:00Z");
 		Simulado simulado = new Simulado(ModoSimulado.PROVA, List.of(questao), 1, Duration.ofMinutes(40), inicio);
@@ -131,10 +149,8 @@ class MapeamentoBancoTest {
 
 	@Test
 	void naoAceitaAlternativaDeOutraQuestao() {
-		Questao questao = novaQuestao("LEG-0004");
-		questao.adicionarAlternativa(1, "A", true);
-		Questao outra = novaQuestao("LEG-0005");
-		Alternativa deOutra = outra.adicionarAlternativa(1, "X", true);
+		Questao questao = novaQuestao("LEG-0007", 1);
+		Alternativa deOutra = novaQuestao("LEG-0008", 1).alternativaCorreta().orElseThrow();
 
 		Instant agora = Instant.now();
 		Simulado simulado = new Simulado(ModoSimulado.TREINO, List.of(questao), 1, null, agora);
@@ -143,10 +159,18 @@ class MapeamentoBancoTest {
 			.isInstanceOf(IllegalArgumentException.class);
 	}
 
-	private Questao novaQuestao(String codigo) {
-		Subtema subtema = subtemas.findByCodigo("normas-circulacao").orElseThrow();
-		return new Questao(subtema, codigo, 1, "Ao se aproximar de um cruzamento, o condutor deve:", null,
-				"Explicação de teste.", "CTB art. 44");
+	private Questao novaQuestao(String codigo, int versao) {
+		return new Questao(subtema(), codigo, versao, OrigemQuestao.MANUAL,
+				conteudo(new Opcao("Certa", true), new Opcao("Errada", false)));
+	}
+
+	private Subtema subtema() {
+		return subtemas.findByCodigo("normas-circulacao").orElseThrow();
+	}
+
+	private static ConteudoQuestao conteudo(Opcao... opcoes) {
+		return new ConteudoQuestao("Ao se aproximar de um cruzamento, o condutor deve:", null, List.of(opcoes),
+				"Explicação de teste.", "CTB art. 44", null);
 	}
 
 }

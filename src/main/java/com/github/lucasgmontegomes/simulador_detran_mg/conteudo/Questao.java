@@ -9,6 +9,8 @@ import java.util.Optional;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -50,6 +52,16 @@ public class Questao {
 	@Column(length = 150)
 	private String referenciaLegal;
 
+	private String trechoFonte;
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 10)
+	private OrigemQuestao origem;
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 10)
+	private StatusQuestao status;
+
 	@Column(nullable = false)
 	private boolean ativa;
 
@@ -63,23 +75,52 @@ public class Questao {
 	protected Questao() {
 	}
 
-	public Questao(Subtema subtema, String codigo, int versao, String enunciado, String imagem, String explicacao,
-			String referenciaLegal) {
+	/**
+	 * Cria uma questão em rascunho. As alternativas recebem a ordem em que aparecem no conteúdo.
+	 */
+	public Questao(Subtema subtema, String codigo, int versao, OrigemQuestao origem, ConteudoQuestao conteudo) {
 		this.subtema = subtema;
 		this.codigo = codigo;
 		this.versao = versao;
-		this.enunciado = enunciado;
-		this.imagem = imagem;
-		this.explicacao = explicacao;
-		this.referenciaLegal = referenciaLegal;
+		this.origem = origem;
+		this.status = StatusQuestao.RASCUNHO;
+		this.enunciado = conteudo.enunciado();
+		this.imagem = conteudo.imagem();
+		this.explicacao = conteudo.explicacao();
+		this.referenciaLegal = conteudo.referenciaLegal();
+		this.trechoFonte = conteudo.trechoFonte();
+		int ordem = 1;
+		for (ConteudoQuestao.Opcao opcao : conteudo.alternativas()) {
+			alternativas.add(new Alternativa(this, ordem++, opcao.texto(), opcao.correta()));
+		}
 		this.ativa = true;
 		this.criadaEm = Instant.now();
 	}
 
-	public Alternativa adicionarAlternativa(int ordem, String texto, boolean correta) {
-		Alternativa alternativa = new Alternativa(this, ordem, texto, correta);
-		alternativas.add(alternativa);
-		return alternativa;
+	public ConteudoQuestao conteudo() {
+		List<ConteudoQuestao.Opcao> opcoes = alternativas.stream()
+			.map(alternativa -> new ConteudoQuestao.Opcao(alternativa.getTexto(), alternativa.isCorreta()))
+			.toList();
+		return new ConteudoQuestao(enunciado, imagem, opcoes, explicacao, referenciaLegal, trechoFonte);
+	}
+
+	public boolean temConteudo(Subtema outroSubtema, ConteudoQuestao outroConteudo) {
+		return subtema.getId().equals(outroSubtema.getId()) && conteudo().equals(outroConteudo);
+	}
+
+	/**
+	 * Aplica origem e revisão vindas do arquivo de questões. Uma questão reportada continua reportada até ganhar
+	 * uma nova versão com o conteúdo corrigido.
+	 */
+	public void atualizarRevisao(OrigemQuestao origem, boolean revisada) {
+		this.origem = origem;
+		if (status != StatusQuestao.REPORTADA) {
+			this.status = revisada ? StatusQuestao.REVISADA : StatusQuestao.RASCUNHO;
+		}
+	}
+
+	public void reportar() {
+		this.status = StatusQuestao.REPORTADA;
 	}
 
 	public Optional<Alternativa> alternativaCorreta() {
@@ -120,6 +161,18 @@ public class Questao {
 
 	public String getReferenciaLegal() {
 		return referenciaLegal;
+	}
+
+	public String getTrechoFonte() {
+		return trechoFonte;
+	}
+
+	public OrigemQuestao getOrigem() {
+		return origem;
+	}
+
+	public StatusQuestao getStatus() {
+		return status;
 	}
 
 	public boolean isAtiva() {
