@@ -148,6 +148,18 @@ class MapeamentoBancoTest {
 	}
 
 	@Test
+	void bancoAceitaUmSimuladoEmAndamentoPorModo() {
+		Questao questao = questoes.save(novaQuestao("LEG-0009", 1));
+		Instant inicio = Instant.parse("2026-10-19T14:00:00Z");
+		simulados.saveAndFlush(new Simulado(ModoSimulado.PROVA, List.of(questao), 1, Duration.ofMinutes(40), inicio));
+		simulados.saveAndFlush(new Simulado(ModoSimulado.TREINO, List.of(questao), 1, null, inicio));
+
+		assertThatThrownBy(() -> simulados
+			.saveAndFlush(new Simulado(ModoSimulado.PROVA, List.of(questao), 1, Duration.ofMinutes(40), inicio)))
+			.isInstanceOf(DataIntegrityViolationException.class);
+	}
+
+	@Test
 	void naoAceitaAlternativaDeOutraQuestao() {
 		Questao questao = novaQuestao("LEG-0007", 1);
 		Alternativa deOutra = novaQuestao("LEG-0008", 1).alternativaCorreta().orElseThrow();

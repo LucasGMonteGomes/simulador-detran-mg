@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
 @Configuration(proxyBeanMethods = false)
-class ConfiguracaoImportacao {
+public class ConfiguracaoImportacao {
 
 	@Bean
 	TextoCtb textoCtb(@Value("classpath:fontes/ctb.txt") Resource recurso) {

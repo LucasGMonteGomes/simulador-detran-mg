@@ -110,6 +110,10 @@ public class Simulado {
 		this.finalizadoEm = isExpirado(agora) ? expiraEm : agora;
 	}
 
+	public Questao questaoNaOrdem(int ordem) {
+		return respostaNaOrdem(ordem).getQuestao();
+	}
+
 	public boolean isFinalizado() {
 		return finalizadoEm != null;
 	}
