@@ -8,3 +8,17 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: validate
+
+simulador:
+  prova:
+    total-questoes: 30
+    nota-corte: 21
+    # As fontes falam em 40 a 60 minutos. Treinar com o limite menor é mais seguro; confirme com o seu CFC.
+    duracao: 40m
+    # Proporcional à carga horária do curso teórico (18 h, 16 h, 4 h, 4 h e 3 h, de um total de 45 h).
+    questoes-por-disciplina:
+      legislacao: 12
+      direcao-defensiva: 10
+      primeiros-socorros: 3
+      meio-ambiente: 3
+      mecanica: 2
