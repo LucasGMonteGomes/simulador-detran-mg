@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: simulador-detran-mg
+  docker:
+    compose:
+      lifecycle-management: start-only
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
