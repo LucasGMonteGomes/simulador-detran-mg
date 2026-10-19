@@ -1,0 +1,26 @@
+disciplina: legislacao
+subtema: normas-circulacao
+origem: IA
+questoes:
+  - codigo: CIR-901
+    revisada: true
+    enunciado: >
+      Em uma via urbana coletora sem sinalização de velocidade,
+      a velocidade máxima permitida é de:
+    alternativas:
+      - texto: 30 km/h
+      - texto: 40 km/h
+        correta: true
+    explicacao: >
+      Sem sinalização, a via coletora tem limite de 40 km/h.
+    referencia: CTB art. 61, § 1º, I, c
+    trecho_fonte: quarenta quilômetros por hora, nas vias coletoras
+  - codigo: CIR-902
+    origem: manual
+    enunciado: Questão sem trecho, com fonte fora do CTB.
+    alternativas:
+      - texto: Sim
+        correta: true
+      - texto: Não
+    explicacao: Explicação.
+    referencia: Manual de Direção Defensiva

@@ -1,0 +1,11 @@
+disciplina: legislacao
+subtema: normas-circulacao
+origem: ia
+questoes:
+  - codigo: CIR-903
+    enunciado: Enunciado
+    explicaçao: campo com acento digitado errado
+    alternativas:
+      - texto: A
+        correta: true
+      - texto: B
