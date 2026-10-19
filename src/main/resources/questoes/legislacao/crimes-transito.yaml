@@ -1,0 +1,46 @@
+disciplina: legislacao
+subtema: crimes-transito
+origem: ia
+questoes:
+  - codigo: CRI-001
+    revisada: false
+    enunciado: >
+      Conduzir veículo automotor com a capacidade psicomotora alterada pela influência de álcool, além
+      de infração, é crime de trânsito com pena de:
+    alternativas:
+      - texto: Apenas multa e advertência por escrito.
+      - texto: Reclusão de dois a quatro anos, sem suspensão da habilitação.
+      - texto: >
+          Detenção de seis meses a três anos, multa e suspensão ou proibição de obter a permissão ou a
+          habilitação para dirigir.
+        correta: true
+      - texto: Prestação de serviços à comunidade por 15 dias, sem multa.
+    explicacao: >
+      Além da infração administrativa do art. 165, existe o crime do art. 306. Ele fica caracterizado,
+      por exemplo, com 6 decigramas ou mais de álcool por litro de sangue, 0,3 miligrama ou mais por
+      litro de ar alveolar, ou sinais de alteração da capacidade psicomotora.
+    referencia: CTB art. 306
+    trecho_fonte: >
+      Penas - detenção, de seis meses a três anos, multa e suspensão ou proibição de se obter a permissão
+      ou a habilitação para dirigir veículo automotor.
+
+  - codigo: CRI-002
+    revisada: false
+    enunciado: >
+      Sobre o crime de omissão de socorro cometido pelo condutor envolvido em um sinistro, é correto
+      afirmar que:
+    alternativas:
+      - texto: O condutor responde por ele mesmo que outra pessoa tenha socorrido a vítima.
+        correta: true
+      - texto: Só existe crime se a vítima tiver ferimentos graves.
+      - texto: Não há crime se a vítima tiver morrido instantaneamente.
+      - texto: Só há crime se o condutor tiver causado o sinistro.
+    explicacao: >
+      O art. 304 pune com detenção de seis meses a um ano, ou multa, o condutor que deixa de prestar
+      imediato socorro à vítima ou, não podendo fazê-lo por justa causa, deixa de pedir auxílio à
+      autoridade pública. A pena se aplica ainda que outra pessoa tenha socorrido a vítima, ou que ela
+      tenha morrido na hora ou sofrido apenas ferimentos leves.
+    referencia: CTB art. 304, parágrafo único
+    trecho_fonte: >
+      ainda que a sua omissão seja suprida por terceiros ou que se trate de vítima com morte instantânea
+      ou com ferimentos leves

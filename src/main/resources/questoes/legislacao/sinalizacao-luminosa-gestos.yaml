@@ -1,0 +1,50 @@
+disciplina: legislacao
+subtema: sinalizacao-luminosa-gestos
+origem: ia
+questoes:
+  - codigo: SLG-001
+    revisada: false
+    enunciado: >
+      O semáforo está verde para você, mas o agente de trânsito no cruzamento faz sinal para que você
+      pare. O que prevalece?
+    alternativas:
+      - texto: A ordem do agente de trânsito.
+        correta: true
+      - texto: O semáforo, por ser sinalização oficial.
+      - texto: A placa de regulamentação mais próxima.
+      - texto: A preferência de quem vem pela direita.
+    explicacao: >
+      A ordem de prevalência é: agente de trânsito, depois semáforo, depois os demais sinais e, por
+      último, as normas gerais de circulação. A ordem do agente vale mesmo contra o semáforo.
+    referencia: CTB art. 89, I
+    trecho_fonte: as ordens do agente de trânsito sobre as normas de circulação e outros sinais
+
+  - codigo: SLG-002
+    revisada: false
+    enunciado: >
+      O agente de trânsito com o braço levantado verticalmente e a palma da mão para a frente indica:
+    alternativas:
+      - texto: Siga em frente com cautela.
+      - texto: Diminua a velocidade.
+      - texto: Ordem de parada para todos os veículos.
+        correta: true
+      - texto: Passagem liberada apenas para pedestres.
+    explicacao: >
+      Braço erguido na vertical, com a palma da mão para a frente, é ordem de parada obrigatória para
+      todos os veículos. Quem já estiver dentro do cruzamento não é obrigado a parar.
+    referencia: Anexo II do CTB (sinalização) - gestos dos agentes de trânsito
+
+  - codigo: SLG-003
+    revisada: false
+    enunciado: >
+      Durante a fiscalização, o agente de trânsito emite dois silvos breves de apito. Isso significa:
+    alternativas:
+      - texto: Siga.
+      - texto: Pare.
+        correta: true
+      - texto: Diminua a marcha.
+      - texto: Estacione no acostamento.
+    explicacao: >
+      Sinais sonoros do apito: um silvo breve quer dizer "siga", dois silvos breves quer dizer "pare" e
+      um silvo longo quer dizer "diminua a marcha".
+    referencia: Anexo II do CTB (sinalização) - sinais sonoros

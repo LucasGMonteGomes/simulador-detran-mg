@@ -1,0 +1,35 @@
+disciplina: legislacao
+subtema: sinalizacao-horizontal
+origem: ia
+questoes:
+  - codigo: SHO-001
+    revisada: false
+    enunciado: >
+      Uma linha contínua amarela no centro da pista, separando fluxos de sentidos opostos, indica que:
+    alternativas:
+      - texto: A ultrapassagem é permitida, desde que com cuidado.
+      - texto: É proibido ultrapassar e transpor a linha.
+        correta: true
+      - texto: A ultrapassagem é permitida apenas para motocicletas.
+      - texto: Os dois fluxos seguem no mesmo sentido.
+    explicacao: >
+      Linhas amarelas separam sentidos opostos e linhas brancas separam faixas do mesmo sentido. Linha
+      contínua proíbe a ultrapassagem e a transposição; linha seccionada (tracejada) permite, com
+      segurança.
+    referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. IV (Sinalização Horizontal)
+
+  - codigo: SHO-002
+    revisada: false
+    enunciado: >
+      Na sinalização horizontal, as linhas longitudinais brancas são usadas para:
+    alternativas:
+      - texto: Separar fluxos de sentidos opostos.
+      - texto: Indicar trechos com estacionamento proibido.
+      - texto: Delimitar exclusivamente as ciclovias.
+      - texto: Separar faixas de trânsito de mesmo sentido.
+        correta: true
+    explicacao: >
+      A cor indica o tipo de separação: amarela para sentidos opostos e branca para faixas de mesmo
+      sentido. O branco também é usado nas linhas de bordo da pista, nas faixas de pedestres e nas
+      linhas de retenção.
+    referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. IV (Sinalização Horizontal)

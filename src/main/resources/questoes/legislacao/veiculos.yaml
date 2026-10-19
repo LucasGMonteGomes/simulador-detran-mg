@@ -1,0 +1,23 @@
+disciplina: legislacao
+subtema: veiculos
+origem: ia
+questoes:
+  - codigo: VEI-001
+    revisada: false
+    enunciado: >
+      Para transitar na via, todo veículo automotor deve ser licenciado:
+    alternativas:
+      - texto: A cada dois anos, no município onde o proprietário reside.
+      - texto: Somente no momento da compra.
+      - texto: A cada cinco anos, junto com a renovação da CNH do proprietário.
+      - texto: >
+          Anualmente, pelo órgão executivo de trânsito do Estado ou do Distrito Federal onde o veículo
+          estiver registrado.
+        correta: true
+    explicacao: >
+      O licenciamento é anual e feito no Estado (ou no DF) onde o veículo está registrado. Conduzir
+      veículo que não esteja registrado e devidamente licenciado é infração (art. 230, V).
+    referencia: CTB art. 130
+    trecho_fonte: >
+      deverá ser licenciado anualmente pelo órgão executivo de trânsito do Estado, ou do Distrito
+      Federal, onde estiver registrado o veículo

@@ -1,0 +1,20 @@
+disciplina: legislacao
+subtema: sinalizacao-indicacao
+origem: ia
+questoes:
+  - codigo: SIN-001
+    revisada: false
+    enunciado: >
+      As placas que identificam vias, destinos e locais de interesse, e orientam o condutor sobre
+      percursos e distâncias, são as placas de:
+    alternativas:
+      - texto: Regulamentação.
+      - texto: Advertência.
+      - texto: Indicação.
+        correta: true
+      - texto: Obras.
+    explicacao: >
+      As placas de indicação orientam: identificam rodovias e ruas, mostram destinos e distâncias e
+      indicam serviços (posto, hospital) e atrativos turísticos. Elas não impõem regras nem alertam
+      sobre perigos.
+    referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. III (Indicação)

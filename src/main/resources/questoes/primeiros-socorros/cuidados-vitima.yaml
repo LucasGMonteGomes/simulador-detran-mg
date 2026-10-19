@@ -1,0 +1,33 @@
+disciplina: primeiros-socorros
+subtema: cuidados-vitima
+origem: ia
+questoes:
+  - codigo: PSC-001
+    revisada: false
+    enunciado: >
+      Um motociclista caiu e está consciente, ainda de capacete. O correto é:
+    alternativas:
+      - texto: Retirar o capacete para que ele respire melhor.
+      - texto: Retirar o capacete e colocá-lo sentado.
+      - texto: Não retirar o capacete e mantê-lo imóvel até a chegada do socorro especializado.
+        correta: true
+      - texto: Dar água e ajudá-lo a se levantar.
+    explicacao: >
+      Retirar o capacete pode agravar uma lesão na coluna cervical. Mantenha a vítima imóvel, converse
+      com ela para acalmá-la e deixe que o socorro especializado faça a remoção do capacete.
+    referencia: Res. CONTRAN 789/2020 - curso teórico, noções de primeiros socorros
+
+  - codigo: PSC-002
+    revisada: false
+    enunciado: >
+      Em relação à vítima de um acidente, o socorrista leigo NÃO deve:
+    alternativas:
+      - texto: Dar líquidos ou alimentos à vítima.
+        correta: true
+      - texto: Manter a vítima aquecida.
+      - texto: Conversar com a vítima para acalmá-la.
+      - texto: Sinalizar o local e acionar o socorro.
+    explicacao: >
+      Líquidos e alimentos podem provocar vômito e engasgo e atrapalhar uma eventual cirurgia. Também não
+      se deve mover a vítima, a não ser em caso de risco iminente, como incêndio ou explosão.
+    referencia: Res. CONTRAN 789/2020 - curso teórico, noções de primeiros socorros

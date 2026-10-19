@@ -1,0 +1,71 @@
+disciplina: legislacao
+subtema: infracoes-penalidades
+origem: ia
+questoes:
+  - codigo: INF-001
+    revisada: false
+    enunciado: >
+      O condutor que soma 30 pontos em 12 meses, sendo uma das infrações gravíssima, terá o direito
+      de dirigir:
+    alternativas:
+      - texto: Mantido, pois o limite é de 40 pontos para qualquer condutor.
+      - texto: Mantido, pois só há suspensão com duas ou mais infrações gravíssimas.
+      - texto: Suspenso, pois com uma infração gravíssima o limite é de 30 pontos.
+        correta: true
+      - texto: Cassado imediatamente.
+    explicacao: >
+      Desde a Lei 14.071/2020, o limite em 12 meses depende das gravíssimas: 20 pontos com duas ou mais,
+      30 com uma e 40 com nenhuma. Muitos simulados antigos ainda usam a regra anterior (20 pontos para
+      todos).
+    referencia: CTB art. 261, I, b
+    trecho_fonte: 30 (trinta) pontos, caso conste 1 (uma) infração gravíssima na pontuação
+
+  - codigo: INF-002
+    revisada: false
+    enunciado: >
+      Dirigir sob a influência de álcool é infração:
+    alternativas:
+      - texto: Gravíssima, com multa multiplicada por dez e suspensão do direito de dirigir por 12 meses.
+        correta: true
+      - texto: Gravíssima, com multa multiplicada por três e apreensão do veículo.
+      - texto: Grave, com multa e retenção do veículo.
+      - texto: Gravíssima, com multa simples e suspensão do direito de dirigir por 6 meses.
+    explicacao: >
+      É a infração do art. 165: gravíssima, multa (dez vezes) e suspensão por 12 meses, com recolhimento
+      do documento de habilitação e retenção do veículo. A multa dobra em caso de reincidência em 12 meses,
+      e qualquer concentração de álcool já sujeita o condutor a essas penalidades (art. 276).
+    referencia: CTB art. 165
+    trecho_fonte: Penalidade - multa (dez vezes) e suspensão do direito de dirigir por 12 (doze) meses.
+
+  - codigo: INF-003
+    revisada: false
+    enunciado: >
+      Dirigir segurando ou manuseando o telefone celular é infração:
+    alternativas:
+      - texto: Leve.
+      - texto: Média.
+      - texto: Grave.
+      - texto: Gravíssima.
+        correta: true
+    explicacao: >
+      Dirigir usando fones de ouvido ou telefone celular é infração média (art. 252, VI). Se o condutor
+      estiver segurando ou manuseando o aparelho, a infração passa a ser gravíssima.
+    referencia: CTB art. 252, parágrafo único
+    trecho_fonte: >
+      caracterizar-se-á como infração gravíssima no caso de o condutor estar segurando ou manuseando
+      telefone celular
+
+  - codigo: INF-004
+    revisada: false
+    enunciado: >
+      Quantos pontos são computados no prontuário do condutor por uma infração grave?
+    alternativas:
+      - texto: Três.
+      - texto: Cinco.
+        correta: true
+      - texto: Quatro.
+      - texto: Sete.
+    explicacao: >
+      Cada infração soma pontos conforme a natureza: gravíssima, 7 pontos; grave, 5; média, 4; leve, 3.
+    referencia: CTB art. 259, II
+    trecho_fonte: II - grave - cinco pontos;

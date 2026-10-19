@@ -1,0 +1,73 @@
+disciplina: legislacao
+subtema: normas-circulacao
+origem: ia
+questoes:
+  - codigo: CIR-001
+    revisada: false
+    enunciado: >
+      Em uma via urbana coletora sem sinalização de velocidade, a velocidade máxima permitida é de:
+    alternativas:
+      - texto: 30 km/h
+      - texto: 40 km/h
+        correta: true
+      - texto: 50 km/h
+      - texto: 60 km/h
+    explicacao: >
+      Sem placa de velocidade, vale o limite do tipo de via urbana: 80 km/h nas vias de trânsito rápido,
+      60 km/h nas arteriais, 40 km/h nas coletoras e 30 km/h nas locais.
+    referencia: CTB art. 61, § 1º, I, c
+    trecho_fonte: quarenta quilômetros por hora, nas vias coletoras
+
+  - codigo: CIR-002
+    revisada: false
+    enunciado: >
+      Ao chegar a uma rotatória sem sinalização, quem tem a preferência de passagem?
+    alternativas:
+      - texto: O veículo que vier pela direita do condutor.
+      - texto: O veículo de maior porte.
+      - texto: O veículo que já estiver circulando pela rotatória.
+        correta: true
+      - texto: O veículo que vier pela via de maior movimento.
+    explicacao: >
+      Em local não sinalizado, a regra geral é a preferência de quem vem pela direita. A rotatória é uma
+      exceção: tem preferência quem já está circulando por ela.
+    referencia: CTB art. 29, III, b
+    trecho_fonte: no caso de rotatória, aquele que estiver circulando por ela
+
+  - codigo: CIR-003
+    revisada: false
+    enunciado: >
+      Sobre o uso do cinto de segurança, é correto afirmar que ele é obrigatório:
+    alternativas:
+      - texto: >
+          Para o condutor e todos os passageiros, em todas as vias do território nacional, salvo
+          situações regulamentadas pelo CONTRAN.
+        correta: true
+      - texto: Apenas para o condutor e o passageiro do banco da frente.
+      - texto: Somente em rodovias e vias de trânsito rápido.
+      - texto: Apenas para passageiros maiores de 10 anos.
+    explicacao: >
+      O cinto é obrigatório para todos os ocupantes, em qualquer via, inclusive nas urbanas e no banco
+      de trás. As únicas exceções são as regulamentadas pelo CONTRAN.
+    referencia: CTB art. 65
+    trecho_fonte: >
+      É obrigatório o uso do cinto de segurança para condutor e passageiros em todas as vias do
+      território nacional
+
+  - codigo: CIR-004
+    revisada: false
+    enunciado: >
+      Uma criança de 8 anos, com 1,30 m de altura, deve ser transportada:
+    alternativas:
+      - texto: No banco dianteiro, desde que use o cinto de segurança de três pontos.
+      - texto: No banco traseiro, usando apenas o cinto de segurança do veículo.
+      - texto: Em qualquer banco, no colo de um adulto que esteja usando o cinto.
+      - texto: No banco traseiro, em dispositivo de retenção adequado à sua idade, peso e altura.
+        correta: true
+    explicacao: >
+      Crianças com menos de 10 anos que ainda não atingiram 1,45 m vão no banco traseiro, em dispositivo
+      de retenção adequado (cadeirinha ou assento de elevação). Levar a criança no colo descumpre a regra.
+    referencia: CTB art. 64
+    trecho_fonte: >
+      As crianças com idade inferior a 10 (dez) anos que não tenham atingido 1,45 m (um metro e quarenta
+      e cinco centímetros) de altura devem ser transportadas nos bancos traseiros

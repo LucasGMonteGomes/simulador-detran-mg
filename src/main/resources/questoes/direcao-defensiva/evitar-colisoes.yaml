@@ -1,0 +1,93 @@
+disciplina: direcao-defensiva
+subtema: evitar-colisoes
+origem: ia
+questoes:
+  - codigo: DDE-001
+    revisada: false
+    enunciado: >
+      Uma forma prática de manter distância segura do veículo da frente, em pista seca, é a "regra dos
+      dois segundos". Ela consiste em:
+    alternativas:
+      - texto: Buzinar duas vezes antes de se aproximar do veículo da frente.
+      - texto: >
+          Contar pelo menos dois segundos entre a passagem do veículo da frente e a do seu veículo por um
+          mesmo ponto fixo da via.
+        correta: true
+      - texto: Frear por dois segundos sempre que o veículo da frente reduzir a velocidade.
+      - texto: Manter dois metros de distância em qualquer velocidade.
+    explicacao: >
+      Escolha um ponto fixo, como uma placa ou um poste. Quando o veículo da frente passar por ele, conte
+      "mil e um, mil e dois". Se você chegar ao ponto antes de terminar a contagem, está perto demais.
+      Com chuva ou à noite, aumente o intervalo.
+    referencia: Manual de Direção Defensiva (DENATRAN)
+
+  - codigo: DDE-002
+    revisada: false
+    enunciado: >
+      Segundo o CTB, a distância de segurança lateral e frontal que o condutor deve guardar em relação
+      aos demais veículos depende:
+    alternativas:
+      - texto: Apenas da velocidade máxima da via.
+      - texto: Apenas do tamanho dos veículos.
+      - texto: Exclusivamente das placas de sinalização.
+      - texto: >
+          Da velocidade e das condições do local, da circulação, do veículo e das condições climáticas.
+        correta: true
+    explicacao: >
+      A lei não fixa uma distância em metros: a distância segura varia com a velocidade, o local, o
+      fluxo, o estado do veículo e o clima. Por isso existem referências práticas, como a regra dos dois
+      segundos.
+    referencia: CTB art. 29, II
+    trecho_fonte: >
+      considerando-se, no momento, a velocidade e as condições do local, da circulação, do veículo e as
+      condições climáticas
+
+  - codigo: DDE-003
+    revisada: false
+    enunciado: >
+      Em regra, a ultrapassagem de outro veículo em movimento deve ser feita:
+    alternativas:
+      - texto: >
+          Pela esquerda, exceto quando o veículo a ser ultrapassado estiver sinalizando que vai entrar à
+          esquerda.
+        correta: true
+      - texto: Pela direita, que é a faixa dos veículos mais lentos.
+      - texto: Pelo acostamento, quando ele estiver livre.
+      - texto: Por qualquer lado, desde que com o pisca-alerta ligado.
+    explicacao: >
+      A ultrapassagem é feita pela esquerda. A exceção é quando o veículo da frente sinaliza que vai
+      entrar à esquerda: nesse caso, passa-se pela direita. Ultrapassar pelo acostamento é infração
+      gravíssima (art. 202, I).
+    referencia: CTB art. 29, IX
+    trecho_fonte: a ultrapassagem de outro veículo em movimento deverá ser feita pela esquerda
+
+  - codigo: DDE-004
+    revisada: false
+    enunciado: >
+      Você está na faixa da esquerda e percebe que o veículo de trás quer ultrapassá-lo. Você deve:
+    alternativas:
+      - texto: Acelerar para manter sua posição.
+      - texto: Frear para que ele passe mais rápido.
+      - texto: Deslocar-se para a faixa da direita, sem acelerar.
+        correta: true
+      - texto: Permanecer na faixa da esquerda, pois chegou primeiro.
+    explicacao: >
+      Quem está na faixa da esquerda deve ir para a faixa da direita, sem acelerar. Quem está nas demais
+      faixas deve se manter na faixa em que está, também sem acelerar.
+    referencia: CTB art. 30, I
+    trecho_fonte: se estiver circulando pela faixa da esquerda, deslocar-se para a faixa da direita, sem acelerar a marcha
+
+  - codigo: DDE-005
+    revisada: false
+    enunciado: >
+      Antes de mudar de faixa, além de olhar os retrovisores e sinalizar, o condutor deve:
+    alternativas:
+      - texto: Buzinar para avisar os demais condutores.
+      - texto: Verificar o ponto cego, olhando rapidamente por sobre o ombro.
+        correta: true
+      - texto: Acelerar bruscamente para concluir a manobra o quanto antes.
+      - texto: Acender o farol alto.
+    explicacao: >
+      Os retrovisores não mostram tudo: há regiões ao lado e atrás do veículo (pontos cegos) onde motos
+      e carros podem ficar escondidos. Uma olhada rápida por sobre o ombro evita colisões laterais.
+    referencia: Manual de Direção Defensiva (DENATRAN)

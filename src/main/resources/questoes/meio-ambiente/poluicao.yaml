@@ -1,0 +1,55 @@
+disciplina: meio-ambiente
+subtema: poluicao
+origem: ia
+questoes:
+  - codigo: MAP-001
+    revisada: false
+    enunciado: >
+      Transitar com o veículo produzindo fumaça, gases ou partículas em níveis superiores aos fixados
+      pelo CONTRAN é infração:
+    alternativas:
+      - texto: Leve.
+      - texto: Grave.
+        correta: true
+      - texto: Média.
+      - texto: Gravíssima.
+    explicacao: >
+      É infração grave, com multa e retenção do veículo para regularização. Manter a manutenção em dia
+      (regulagem do motor, filtros e catalisador) mantém as emissões dentro dos limites.
+    referencia: CTB art. 231, III
+    trecho_fonte: produzindo fumaça, gases ou partículas em níveis superiores aos fixados pelo CONTRAN
+
+  - codigo: MAP-002
+    revisada: false
+    enunciado: >
+      Atirar do veículo ou abandonar na via objetos ou substâncias é:
+    alternativas:
+      - texto: Permitido, se o objeto for biodegradável.
+      - texto: Infração leve.
+      - texto: Permitido em rodovias, fora do perímetro urbano.
+      - texto: Infração média.
+        correta: true
+    explicacao: >
+      Jogar lixo pela janela é infração média, além de poluir e poder causar acidentes: latas e garrafas
+      na pista atingem outros veículos, e pontas de cigarro provocam incêndios na vegetação.
+    referencia: CTB art. 172
+    trecho_fonte: >
+      Atirar do veículo ou abandonar na via objetos ou substâncias: Infração - média;
+
+  - codigo: MAP-003
+    revisada: false
+    enunciado: >
+      Usar no veículo equipamento de som em volume ou frequência não autorizados pelo CONTRAN é:
+    alternativas:
+      - texto: Infração grave, com retenção do veículo para regularização.
+        correta: true
+      - texto: Infração leve, punida apenas com advertência.
+      - texto: Permitido durante o dia.
+      - texto: Permitido se as janelas estiverem fechadas.
+    explicacao: >
+      A poluição sonora também é um problema ambiental e de convívio. Som acima do permitido é infração
+      grave, com multa e retenção do veículo para regularização.
+    referencia: CTB art. 228
+    trecho_fonte: >
+      Usar no veículo equipamento com som em volume ou freqüência que não sejam autorizados pelo
+      CONTRAN: Infração - grave;

@@ -1,0 +1,59 @@
+disciplina: meio-ambiente
+subtema: cidadania
+origem: ia
+questoes:
+  - codigo: MAC-001
+    revisada: false
+    enunciado: >
+      De acordo com o CTB, o trânsito em condições seguras é:
+    alternativas:
+      - texto: Responsabilidade exclusiva dos condutores profissionais.
+      - texto: Um privilégio de quem possui veículo.
+      - texto: Um direito de todos e dever dos órgãos e entidades do Sistema Nacional de Trânsito.
+        correta: true
+      - texto: Uma obrigação apenas da polícia rodoviária.
+    explicacao: >
+      O art. 1º, § 2º, coloca o trânsito seguro como direito de todos (pedestres, ciclistas, passageiros
+      e condutores) e obriga os órgãos de trânsito a adotarem medidas para garanti-lo.
+    referencia: CTB art. 1º, § 2º
+    trecho_fonte: >
+      O trânsito, em condições seguras, é um direito de todos e dever dos órgãos e entidades componentes
+      do Sistema Nacional de Trânsito
+
+  - codigo: MAC-002
+    revisada: false
+    enunciado: >
+      Estacionar nas vagas reservadas às pessoas com deficiência ou idosos sem a credencial que comprove
+      essa condição é infração:
+    alternativas:
+      - texto: Leve, com advertência por escrito.
+      - texto: Gravíssima, com remoção do veículo.
+        correta: true
+      - texto: Média, punida apenas com multa.
+      - texto: Grave, com retenção do veículo.
+    explicacao: >
+      É infração gravíssima, com multa e remoção do veículo. Além da penalidade, é uma questão de
+      respeito: a vaga existe para quem tem mobilidade reduzida.
+    referencia: CTB art. 181, XX
+    trecho_fonte: >
+      nas vagas reservadas às pessoas com deficiência ou idosos, sem credencial que comprove tal
+      condição: Infração - gravíssima;
+
+  - codigo: MAC-003
+    revisada: false
+    enunciado: >
+      Uma ambulância com a sirene e as luzes intermitentes acionadas se aproxima por trás. Todos os
+      condutores devem:
+    alternativas:
+      - texto: Acelerar para abrir espaço à frente.
+      - texto: Parar imediatamente onde estiverem, mesmo na faixa da esquerda.
+      - texto: Seguir normalmente, pois a ambulância deve ultrapassar pela direita.
+      - texto: Deixar livre a faixa da esquerda, indo para a direita da via e parando, se necessário.
+        correta: true
+    explicacao: >
+      Com o alarme sonoro e a iluminação intermitente acionados, ambulâncias, bombeiros e polícia têm
+      prioridade. Libere a faixa da esquerda indo para a direita e pare, se for preciso.
+    referencia: CTB art. 29, VII, a
+    trecho_fonte: >
+      todos os condutores deverão deixar livre a passagem pela faixa da esquerda, indo para a direita da
+      via e parando, se necessário

@@ -1,0 +1,35 @@
+disciplina: mecanica
+subtema: manutencao-painel
+origem: ia
+questoes:
+  - codigo: MEM-001
+    revisada: false
+    enunciado: >
+      A luz de advertência da pressão do óleo acende no painel com o motor em funcionamento. O condutor
+      deve:
+    alternativas:
+      - texto: Continuar a viagem e verificar o óleo na próxima revisão.
+      - texto: Acelerar para aumentar a pressão do óleo.
+      - texto: Ignorar o aviso, pois essa luz indica apenas a troca de óleo programada.
+      - texto: Parar em local seguro e desligar o motor assim que possível.
+        correta: true
+    explicacao: >
+      Pressão de óleo baixa significa que o motor pode não estar sendo lubrificado. Continuar rodando
+      pode fundir o motor em pouco tempo. Pare, desligue o motor e verifique o nível do óleo.
+    referencia: Res. CONTRAN 789/2020 - curso teórico, funcionamento do veículo
+
+  - codigo: MEM-002
+    revisada: false
+    enunciado: >
+      A profundidade mínima dos sulcos da banda de rodagem, abaixo da qual o pneu não pode mais ser
+      usado, é de:
+    alternativas:
+      - texto: 0,5 mm.
+      - texto: 1,6 mm.
+        correta: true
+      - texto: 3,0 mm.
+      - texto: 5,0 mm.
+    explicacao: >
+      O limite é de 1,6 mm, marcado pelos indicadores de desgaste (TWI) nos sulcos do pneu. Abaixo
+      disso, o pneu perde a capacidade de escoar água e o risco de aquaplanagem aumenta muito.
+    referencia: Res. CONTRAN 558/1980 (pneus)

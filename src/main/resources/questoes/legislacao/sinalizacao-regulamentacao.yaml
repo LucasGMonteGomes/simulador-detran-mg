@@ -1,0 +1,38 @@
+disciplina: legislacao
+subtema: sinalizacao-regulamentacao
+origem: ia
+questoes:
+  - codigo: SRE-001
+    revisada: false
+    enunciado: >
+      As placas de regulamentação têm como finalidade:
+    alternativas:
+      - texto: Alertar sobre condições potencialmente perigosas na via à frente.
+      - texto: Indicar destinos, distâncias e serviços auxiliares ao condutor.
+      - texto: >
+          Informar as condições, proibições, obrigações ou restrições no uso da via, cujo desrespeito
+          constitui infração.
+        correta: true
+      - texto: Transmitir mensagens educativas sobre comportamento seguro.
+    explicacao: >
+      Regulamentação é regra a cumprir (proibido estacionar, velocidade máxima, sentido obrigatório),
+      e desobedecê-la é infração. Alertar sobre perigos é papel das placas de advertência, e orientar
+      sobre destinos é papel das placas de indicação.
+    referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. I (Regulamentação)
+
+  - codigo: SRE-002
+    revisada: false
+    enunciado: >
+      A placa R-1 (Parada obrigatória) se diferencia das demais placas de regulamentação por ter formato:
+    alternativas:
+      - texto: Triangular, com o vértice voltado para baixo.
+      - texto: Octogonal.
+        correta: true
+      - texto: Circular, com uma tarja diagonal.
+      - texto: Quadrado, com fundo azul.
+    explicacao: >
+      A maioria das placas de regulamentação é circular, com fundo branco e orla vermelha. Há duas
+      exceções de formato: a R-1 (Parada obrigatória), octogonal e vermelha, e a R-2 (Dê a preferência),
+      triangular com o vértice para baixo. O formato único permite reconhecê-las mesmo de longe ou com a
+      pintura desgastada.
+    referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. I (Regulamentação)

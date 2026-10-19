@@ -1,0 +1,61 @@
+disciplina: direcao-defensiva
+subtema: usuarios-vulneraveis
+origem: ia
+questoes:
+  - codigo: DDV-001
+    revisada: false
+    enunciado: >
+      Em uma faixa de pedestres sem semáforo, o pedestre que estiver atravessando:
+    alternativas:
+      - texto: Tem prioridade de passagem.
+        correta: true
+      - texto: Deve esperar os veículos passarem.
+      - texto: Só tem prioridade se for idoso ou pessoa com deficiência.
+      - texto: Tem prioridade apenas à noite.
+    explicacao: >
+      Na faixa sem semáforo, o pedestre que está atravessando tem prioridade. Onde há semáforo, valem as
+      indicações dele, mas quem ainda não concluiu a travessia tem preferência mesmo que o sinal mude
+      para os veículos.
+    referencia: CTB art. 70
+    trecho_fonte: >
+      Os pedestres que estiverem atravessando a via sobre as faixas delimitadas para esse fim terão
+      prioridade de passagem
+
+  - codigo: DDV-002
+    revisada: false
+    enunciado: >
+      Ao passar ou ultrapassar uma bicicleta, o condutor deve guardar uma distância lateral mínima de:
+    alternativas:
+      - texto: 50 centímetros.
+      - texto: 1 metro.
+      - texto: 1,50 metro.
+        correta: true
+      - texto: 3 metros.
+    explicacao: >
+      A distância lateral mínima é de 1,50 m, e desrespeitá-la é infração média. A bicicleta é mais
+      lenta e vulnerável, e o deslocamento de ar de um carro passando perto pode desequilibrar o
+      ciclista.
+    referencia: CTB art. 201
+    trecho_fonte: >
+      Deixar de guardar a distância lateral de um metro e cinqüenta centímetros ao passar ou ultrapassar
+      bicicleta
+
+  - codigo: DDV-003
+    revisada: false
+    enunciado: >
+      Segundo o CTB, quanto à responsabilidade pela segurança no trânsito:
+    alternativas:
+      - texto: Os pedestres são os únicos responsáveis pela própria segurança.
+      - texto: Os veículos não motorizados são responsáveis pela segurança dos motorizados.
+      - texto: Cada veículo responde apenas pela própria segurança, independentemente do porte.
+      - texto: >
+          Os veículos de maior porte são responsáveis pela segurança dos menores, os motorizados pelos
+          não motorizados e, juntos, pela incolumidade dos pedestres.
+        correta: true
+    explicacao: >
+      O CTB cria uma escala de responsabilidade: quem é maior e mais rápido protege quem é menor e mais
+      vulnerável. No topo dessa proteção está o pedestre.
+    referencia: CTB art. 29, § 2º
+    trecho_fonte: >
+      os veículos de maior porte serão sempre responsáveis pela segurança dos menores, os motorizados
+      pelos não motorizados e, juntos, pela incolumidade dos pedestres

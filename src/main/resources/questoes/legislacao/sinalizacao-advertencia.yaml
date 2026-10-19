@@ -1,0 +1,35 @@
+disciplina: legislacao
+subtema: sinalizacao-advertencia
+origem: ia
+questoes:
+  - codigo: SAD-001
+    revisada: false
+    enunciado: >
+      As placas de advertência, em sua maioria, têm:
+    alternativas:
+      - texto: Formato de losango (quadrado com uma diagonal na vertical), fundo amarelo e símbolos pretos.
+        correta: true
+      - texto: Formato circular, fundo branco e orla vermelha.
+      - texto: Formato retangular, fundo verde e letras brancas.
+      - texto: Formato triangular, fundo branco e orla vermelha.
+    explicacao: >
+      O losango amarelo com símbolo preto identifica a advertência: curva acentuada, pista escorregadia,
+      animais na pista e assim por diante. Algumas têm formatos especiais, como a Cruz de Santo André,
+      que indica passagem de nível.
+    referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. II (Advertência)
+
+  - codigo: SAD-002
+    revisada: false
+    enunciado: >
+      Ao avistar uma placa de advertência, o condutor deve:
+    alternativas:
+      - texto: Parar o veículo obrigatoriamente.
+      - texto: Acelerar para passar logo pelo trecho perigoso.
+      - texto: Manter a velocidade, pois placas de advertência são apenas informativas.
+      - texto: Redobrar a atenção e, se necessário, reduzir a velocidade, pois há um perigo à frente.
+        correta: true
+    explicacao: >
+      Placas de advertência avisam sobre condições potencialmente perigosas (curvas, cruzamentos, pista
+      escorregadia) para que o condutor se prepare. A reação esperada é atenção redobrada e, quando for
+      o caso, redução da velocidade.
+    referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. II (Advertência)

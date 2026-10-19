@@ -1,0 +1,74 @@
+disciplina: direcao-defensiva
+subtema: conceitos-defensiva
+origem: ia
+questoes:
+  - codigo: DDC-001
+    revisada: false
+    enunciado: >
+      Direção defensiva é:
+    alternativas:
+      - texto: Dirigir sempre abaixo de 40 km/h, independentemente da via.
+      - texto: >
+          Dirigir de modo a evitar acidentes, apesar das ações incorretas dos outros e das condições
+          adversas.
+        correta: true
+      - texto: Frear bruscamente sempre que outro condutor cometer um erro.
+      - texto: Conhecer a mecânica do veículo para consertá-lo na estrada.
+    explicacao: >
+      Direção defensiva é dirigir reconhecendo antecipadamente as situações de perigo e prevendo o que
+      pode acontecer, para evitar acidentes mesmo quando outras pessoas erram ou as condições não ajudam.
+    referencia: Manual de Direção Defensiva (DENATRAN)
+
+  - codigo: DDC-002
+    revisada: false
+    enunciado: >
+      São elementos da direção defensiva:
+    alternativas:
+      - texto: Velocidade, potência, reflexo, coragem e experiência.
+      - texto: Habilitação, documentação, seguro, revisão e combustível.
+      - texto: Atenção, velocidade, ultrapassagem, buzina e farol.
+      - texto: Conhecimento, atenção, previsão, decisão e habilidade.
+        correta: true
+    explicacao: >
+      São cinco elementos: conhecimento (das leis e do veículo), atenção (permanente ao trânsito),
+      previsão (antecipar riscos), decisão (escolher a ação mais segura) e habilidade (executar as
+      manobras com segurança).
+    referencia: Manual de Direção Defensiva (DENATRAN)
+
+  - codigo: DDC-003
+    revisada: false
+    enunciado: >
+      Segundo o Código de Trânsito Brasileiro, o condutor deverá, a todo momento:
+    alternativas:
+      - texto: >
+          Ter domínio de seu veículo, dirigindo-o com atenção e cuidados indispensáveis à segurança do
+          trânsito.
+        correta: true
+      - texto: Manter a velocidade máxima permitida para não atrapalhar o fluxo.
+      - texto: Usar a buzina antes de cada cruzamento.
+      - texto: Trafegar pela faixa da esquerda em vias com várias faixas.
+    explicacao: >
+      O art. 28 resume a base da direção defensiva: domínio do veículo, atenção e cuidado constantes.
+      A velocidade máxima é um limite, não uma meta, e a faixa da esquerda é destinada à ultrapassagem
+      e aos veículos mais rápidos.
+    referencia: CTB art. 28
+    trecho_fonte: >
+      O condutor deverá, a todo momento, ter domínio de seu veículo, dirigindo-o com atenção e cuidados
+      indispensáveis à segurança do trânsito.
+
+  - codigo: DDC-004
+    revisada: false
+    enunciado: >
+      A capacidade de antecipar situações de risco, imaginando o que pode acontecer à frente para agir
+      a tempo, corresponde ao elemento da direção defensiva chamado:
+    alternativas:
+      - texto: Habilidade.
+      - texto: Conhecimento.
+      - texto: Previsão.
+        correta: true
+      - texto: Decisão.
+    explicacao: >
+      Previsão é antecipar o perigo: perceber que uma bola rolando na calçada pode trazer uma criança
+      atrás, ou que a porta de um carro estacionado pode se abrir. A decisão vem depois: é escolher a
+      melhor ação diante do risco previsto.
+    referencia: Manual de Direção Defensiva (DENATRAN)

@@ -1,0 +1,68 @@
+disciplina: direcao-defensiva
+subtema: estado-condutor
+origem: ia
+questoes:
+  - codigo: DDS-001
+    revisada: false
+    enunciado: >
+      Mesmo em pequena quantidade, o álcool prejudica o condutor porque:
+    alternativas:
+      - texto: Melhora os reflexos, mas reduz a visão periférica.
+      - texto: Só faz efeito uma hora depois da ingestão.
+      - texto: Afeta apenas condutores inexperientes.
+      - texto: Aumenta o tempo de reação e dá uma falsa sensação de segurança.
+        correta: true
+    explicacao: >
+      O álcool age no sistema nervoso: retarda os reflexos, prejudica a coordenação e a visão e faz a
+      pessoa se sentir mais confiante do que deveria. Por isso qualquer concentração de álcool ao volante
+      já sujeita o condutor às penalidades do CTB.
+    referencia: Manual de Direção Defensiva (DENATRAN)
+
+  - codigo: DDS-002
+    revisada: false
+    enunciado: >
+      Ao sentir sono durante uma viagem, a atitude mais segura é:
+    alternativas:
+      - texto: Parar em local seguro e descansar.
+        correta: true
+      - texto: Tomar café e seguir viagem.
+      - texto: Abrir as janelas e aumentar o volume do som.
+      - texto: Aumentar a velocidade para chegar mais cedo.
+    explicacao: >
+      Café, vento e música alta só disfarçam o sono por pouco tempo, e o risco de cochilar continua. Só
+      o descanso resolve. Em viagens longas, faça paradas regulares.
+    referencia: Manual de Direção Defensiva (DENATRAN)
+
+  - codigo: DDS-003
+    revisada: false
+    enunciado: >
+      Antes de dirigir depois de tomar um medicamento, como um antialérgico ou um calmante, o condutor
+      deve:
+    alternativas:
+      - texto: Dirigir normalmente, pois remédios não afetam a direção.
+      - texto: Tomar um café para cortar o efeito do remédio.
+      - texto: Verificar na bula ou com o médico se o remédio causa sonolência ou reduz os reflexos.
+        correta: true
+      - texto: Dirigir apenas em vias urbanas.
+    explicacao: >
+      Vários medicamentos causam sonolência, tontura ou lentidão de reflexos. Nesse caso, não dirija
+      enquanto durar o efeito. Dirigir com incapacidade física ou mental temporária que comprometa a
+      segurança do trânsito é infração (CTB art. 252, III).
+    referencia: Manual de Direção Defensiva (DENATRAN)
+
+  - codigo: DDS-004
+    revisada: false
+    enunciado: >
+      Um condutor muito irritado depois de uma discussão precisa dirigir. A atitude mais segura é:
+    alternativas:
+      - texto: Dirigir mais rápido para descarregar a tensão.
+      - texto: >
+          Esperar se acalmar antes de dirigir, pois emoções fortes reduzem a atenção e aumentam a
+          agressividade.
+        correta: true
+      - texto: Dirigir normalmente, já que emoções não interferem na direção.
+      - texto: Usar a buzina para alertar os outros sobre o seu estado.
+    explicacao: >
+      Raiva, ansiedade e tristeza tiram a atenção e levam a decisões arriscadas. O estado emocional é uma
+      das condições adversas ligadas ao próprio condutor.
+    referencia: Manual de Direção Defensiva (DENATRAN)

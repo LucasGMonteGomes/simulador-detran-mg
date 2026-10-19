@@ -1,0 +1,58 @@
+disciplina: legislacao
+subtema: habilitacao
+origem: ia
+questoes:
+  - codigo: HAB-001
+    revisada: false
+    enunciado: >
+      Ao ser aprovado em todos os exames do processo de habilitação, o candidato recebe:
+    alternativas:
+      - texto: A Carteira Nacional de Habilitação definitiva, com validade de cinco anos.
+      - texto: A Permissão para Dirigir, com validade de um ano.
+        correta: true
+      - texto: A Permissão para Dirigir, com validade de dois anos.
+      - texto: Uma autorização provisória de 90 dias, válida até a emissão da CNH.
+    explicacao: >
+      O aprovado recebe primeiro a Permissão para Dirigir (PPD), válida por um ano. Só ao fim desse
+      período, cumpridas as condições do § 3º do art. 148, recebe a CNH definitiva.
+    referencia: CTB art. 148, § 2º
+    trecho_fonte: Ao candidato aprovado será conferida Permissão para Dirigir, com validade de um ano.
+
+  - codigo: HAB-002
+    revisada: false
+    enunciado: >
+      O condutor com Permissão para Dirigir receberá a CNH definitiva ao fim de um ano, desde que,
+      nesse período, não tenha:
+    alternativas:
+      - texto: Cometido nenhuma infração de trânsito, de qualquer natureza.
+      - texto: Cometido mais de uma infração leve.
+      - texto: Cometido infração média, mesmo que uma única vez.
+      - texto: Cometido infração grave ou gravíssima, nem sido reincidente em infração média.
+        correta: true
+    explicacao: >
+      Infrações leves não impedem a CNH, nem uma única infração média. O que impede é qualquer infração
+      grave ou gravíssima, ou a reincidência em infração média. Sem cumprir isso, o candidato precisa
+      reiniciar todo o processo de habilitação (§ 4º).
+    referencia: CTB art. 148, § 3º
+    trecho_fonte: >
+      desde que o mesmo não tenha cometido nenhuma infração de natureza grave ou gravíssima ou seja
+      reincidente em infração média
+
+  - codigo: HAB-003
+    revisada: false
+    enunciado: >
+      Um condutor habilitado apenas na categoria B pode dirigir:
+    alternativas:
+      - texto: Veículo de carga com peso bruto total de até 3.500 kg.
+        correta: true
+      - texto: Micro-ônibus com 12 lugares, além do motorista.
+      - texto: Motocicleta de até 125 cilindradas.
+      - texto: Caminhão com peso bruto total de 6.000 kg.
+    explicacao: >
+      A categoria B cobre veículos motorizados que não sejam de duas ou três rodas (categoria A), com
+      peso bruto total de até 3.500 kg e até 8 lugares além do motorista. Motocicleta exige a categoria A,
+      mais de 8 lugares exige a D e carga acima de 3.500 kg exige a C.
+    referencia: CTB art. 143, II
+    trecho_fonte: >
+      cujo peso bruto total não exceda a três mil e quinhentos quilogramas e cuja lotação não exceda a
+      oito lugares, excluído o do motorista

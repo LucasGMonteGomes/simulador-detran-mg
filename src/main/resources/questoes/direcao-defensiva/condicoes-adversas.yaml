@@ -1,0 +1,69 @@
+disciplina: direcao-defensiva
+subtema: condicoes-adversas
+origem: ia
+questoes:
+  - codigo: DDA-001
+    revisada: false
+    enunciado: >
+      Ao dirigir durante o dia sob neblina, o condutor deve:
+    alternativas:
+      - texto: Usar o farol alto para enxergar mais longe.
+      - texto: Manter os faróis acesos com luz baixa e reduzir a velocidade.
+        correta: true
+      - texto: Ligar o pisca-alerta e manter a velocidade da via.
+      - texto: Manter os faróis apagados, já que é dia.
+    explicacao: >
+      A luz alta reflete nas gotículas da neblina e ofusca o próprio condutor. O CTB exige luz baixa
+      mesmo durante o dia sob chuva, neblina ou cerração e em túneis. O pisca-alerta é para
+      imobilizações e situações de emergência.
+    referencia: CTB art. 40, I, b
+    trecho_fonte: mesmo durante o dia, em túneis e sob chuva, neblina ou cerração
+
+  - codigo: DDA-002
+    revisada: false
+    enunciado: >
+      Em uma aquaplanagem, quando os pneus perdem o contato com o asfalto por causa de uma lâmina de
+      água, a atitude correta é:
+    alternativas:
+      - texto: >
+          Segurar firme o volante, manter a direção e tirar o pé do acelerador, sem frear bruscamente.
+        correta: true
+      - texto: Frear com força até o veículo parar.
+      - texto: Virar o volante rapidamente em direção ao acostamento.
+      - texto: Acelerar para que os pneus recuperem a aderência.
+    explicacao: >
+      Sem aderência, frear ou virar o volante bruscamente pode fazer o veículo rodar. O correto é manter
+      o volante firme e reto e aliviar o acelerador até os pneus voltarem a tocar o piso. Pneus em bom
+      estado e velocidade reduzida na chuva ajudam a evitar a aquaplanagem.
+    referencia: Manual de Direção Defensiva (DENATRAN)
+
+  - codigo: DDA-003
+    revisada: false
+    enunciado: >
+      À noite, ao ser ofuscado pelo farol de um veículo que vem em sentido contrário, o condutor deve:
+    alternativas:
+      - texto: Olhar fixamente para o farol até a visão se acostumar.
+      - texto: Acender o farol alto para avisar o outro condutor.
+      - texto: Fechar os olhos por alguns segundos.
+      - texto: Desviar o olhar para a borda direita da pista e reduzir a velocidade, se necessário.
+        correta: true
+    explicacao: >
+      Olhar para a linha de bordo à direita mantém a referência da pista sem receber a luz diretamente
+      nos olhos. Revidar com farol alto coloca os dois condutores em risco.
+    referencia: Manual de Direção Defensiva (DENATRAN)
+
+  - codigo: DDA-004
+    revisada: false
+    enunciado: >
+      Chuva forte, neblina e vento lateral são exemplos de condições adversas de:
+    alternativas:
+      - texto: Luz.
+      - texto: Via.
+      - texto: Tempo.
+        correta: true
+      - texto: Trânsito.
+    explicacao: >
+      As condições adversas são agrupadas em seis tipos: luz, tempo, vias, trânsito, veículo e condutor.
+      Chuva, neblina e vento são condições de tempo; ofuscamento e penumbra, de luz; buracos e falta de
+      acostamento, de via.
+    referencia: Manual de Direção Defensiva (DENATRAN)

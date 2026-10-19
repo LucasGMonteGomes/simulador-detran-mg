@@ -1,0 +1,35 @@
+disciplina: primeiros-socorros
+subtema: sinalizacao-acidente
+origem: ia
+questoes:
+  - codigo: PSS-001
+    revisada: false
+    enunciado: >
+      Ao chegar ao local de um acidente com vítimas, a primeira providência deve ser:
+    alternativas:
+      - texto: Retirar imediatamente as vítimas de dentro dos veículos.
+      - texto: Dar água às vítimas que estiverem conscientes.
+      - texto: Garantir a própria segurança e sinalizar o local, para evitar novos acidentes.
+        correta: true
+      - texto: Fotografar o local para ajudar a perícia.
+    explicacao: >
+      Antes de ajudar, evite se tornar mais uma vítima: pare em local seguro, ligue o pisca-alerta e
+      sinalize o local com o triângulo ou outros recursos, a uma distância que permita aos outros
+      condutores reduzirem a tempo. Depois, acione o socorro.
+    referencia: Res. CONTRAN 789/2020 - curso teórico, noções de primeiros socorros
+
+  - codigo: PSS-002
+    revisada: false
+    enunciado: >
+      Para pedir socorro em um acidente com vítimas, os números de emergência do SAMU e do Corpo de
+      Bombeiros são, respectivamente:
+    alternativas:
+      - texto: 192 e 193.
+        correta: true
+      - texto: 190 e 192.
+      - texto: 193 e 190.
+      - texto: 191 e 194.
+    explicacao: >
+      SAMU: 192. Corpo de Bombeiros: 193. Polícia Militar: 190. Polícia Rodoviária Federal: 191. Ao ligar,
+      informe o local exato, o número de vítimas e o estado delas.
+    referencia: Res. CONTRAN 789/2020 - curso teórico, noções de primeiros socorros

@@ -1,0 +1,35 @@
+disciplina: primeiros-socorros
+subtema: avaliacao-vitima
+origem: ia
+questoes:
+  - codigo: PSA-001
+    revisada: false
+    enunciado: >
+      Depois de garantir a segurança do local, ao se aproximar de uma vítima, o socorrista leigo deve
+      primeiro:
+    alternativas:
+      - texto: Verificar se há fraturas nas pernas.
+      - texto: Procurar os documentos da vítima.
+      - texto: Colocar a vítima sentada.
+      - texto: Verificar se ela está consciente e respirando.
+        correta: true
+    explicacao: >
+      Consciência e respiração indicam a gravidade da situação e são as primeiras informações que o
+      socorro profissional vai pedir. Chame a vítima, observe se o peito se movimenta e repasse isso ao
+      192 ou ao 193.
+    referencia: Res. CONTRAN 789/2020 - curso teórico, noções de primeiros socorros
+
+  - codigo: PSA-002
+    revisada: false
+    enunciado: >
+      Pele fria, pálida e úmida, pulso rápido e fraco e respiração acelerada são sinais de:
+    alternativas:
+      - texto: Fratura exposta.
+      - texto: Estado de choque.
+        correta: true
+      - texto: Desmaio simples, sem gravidade.
+      - texto: Insolação.
+    explicacao: >
+      Esses sinais indicam estado de choque, quando o sangue não chega direito aos órgãos (comum em
+      hemorragias). Mantenha a vítima deitada e aquecida e acione o socorro com urgência.
+    referencia: Res. CONTRAN 789/2020 - curso teórico, noções de primeiros socorros

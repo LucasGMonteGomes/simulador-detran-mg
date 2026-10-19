@@ -1,0 +1,38 @@
+disciplina: mecanica
+subtema: sistemas-veiculo
+origem: ia
+questoes:
+  - codigo: MES-001
+    revisada: false
+    enunciado: >
+      A principal função do sistema de freios ABS é:
+    alternativas:
+      - texto: Frear o veículo sozinho diante de obstáculos.
+      - texto: Reduzir o desgaste das pastilhas de freio.
+      - texto: >
+          Impedir o travamento das rodas em frenagens bruscas, permitindo manter o controle da direção.
+        correta: true
+      - texto: Diminuir a distância de frenagem em qualquer piso, inclusive cascalho.
+    explicacao: >
+      Com as rodas travadas, o veículo derrapa e não obedece ao volante. O ABS alivia e reaplica a pressão
+      do freio várias vezes por segundo, mantendo as rodas girando e o veículo controlável. Em pisos
+      soltos, como cascalho, a distância de frenagem pode até aumentar.
+    referencia: Res. CONTRAN 789/2020 - curso teórico, funcionamento do veículo
+
+  - codigo: MES-002
+    revisada: false
+    enunciado: >
+      O ponteiro de temperatura do motor sobe acima do normal durante o trajeto. O condutor deve:
+    alternativas:
+      - texto: >
+          Parar em local seguro, desligar o motor e esperar esfriar antes de verificar o nível do líquido
+          de arrefecimento.
+        correta: true
+      - texto: Abrir imediatamente a tampa do reservatório, com o motor ainda quente.
+      - texto: Continuar dirigindo em alta rotação para ventilar o motor.
+      - texto: Completar o reservatório com água gelada, com o motor ainda quente.
+    explicacao: >
+      O superaquecimento pode danificar seriamente o motor. Abrir o reservatório quente libera vapor e
+      líquido sob pressão, com risco de queimaduras. Espere esfriar e verifique o nível; se o problema
+      continuar, procure um mecânico.
+    referencia: Res. CONTRAN 789/2020 - curso teórico, funcionamento do veículo
