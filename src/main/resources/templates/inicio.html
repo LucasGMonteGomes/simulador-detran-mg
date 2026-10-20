@@ -25,7 +25,7 @@
 			<h2>Modo Prova</h2>
 			<ul class="regras">
 				<li><strong th:text="${regras.totalQuestoes}">30</strong> questões de múltipla escolha</li>
-				<li><strong th:text="${@formatos.minutos(regras.duracao)}">40 minutos</strong> para responder</li>
+				<li><strong th:text="${@formatos.minutos(regras.duracao)}">60 minutos</strong> para responder</li>
 				<li>Aprovação com <strong th:text="|${regras.notaCorte} acertos|">21 acertos</strong>
 					(<span th:text="|${regras.notaCorte * 100 / regras.totalQuestoes}%|">70%</span>)</li>
 			</ul>

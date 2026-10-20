@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 
 /**
- * Relógio que só anda quando o teste manda. Permite testar o fim do prazo da prova sem esperar 40 minutos.
+ * Relógio que só anda quando o teste manda. Permite testar o fim do prazo da prova sem esperar o tempo de verdade.
  */
 public class RelogioDeTeste extends Clock {
 

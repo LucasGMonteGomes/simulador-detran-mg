@@ -34,10 +34,11 @@ import com.github.lucasgmontegomes.simulador_detran_mg.conteudo.importacao.Leito
 		RelogioDeTeste.Configuracao.class })
 class ModoProvaServiceTest {
 
-	private static final Duration DURACAO = Duration.ofMinutes(40);
-
 	@Autowired
 	private ModoProvaService service;
+
+	@Autowired
+	private RegrasProva regras;
 
 	@Autowired
 	private SimuladoRepository simulados;
@@ -71,7 +72,7 @@ class ModoProvaServiceTest {
 		assertThat(prova.getModo()).isEqualTo(ModoSimulado.PROVA);
 		assertThat(prova.getTotalQuestoes()).isEqualTo(30);
 		assertThat(prova.getNotaCorte()).isEqualTo(21);
-		assertThat(prova.getExpiraEm()).isEqualTo(RelogioDeTeste.INICIO.plus(DURACAO));
+		assertThat(prova.getExpiraEm()).isEqualTo(RelogioDeTeste.INICIO.plus(regras.duracao()));
 		assertThat(questoesPorDisciplina(prova)).containsExactlyInAnyOrderEntriesOf(Map.of("legislacao", 12L,
 				"direcao-defensiva", 10L, "primeiros-socorros", 3L, "meio-ambiente", 3L, "mecanica", 2L));
 		assertThat(idsDasQuestoes(prova)).doesNotHaveDuplicates();
@@ -90,7 +91,7 @@ class ModoProvaServiceTest {
 	@Test
 	void naoIniciaOutraProvaEnquantoHouverUmaDentroDoPrazo() {
 		Simulado aberta = service.iniciar();
-		relogio.avancar(Duration.ofMinutes(39));
+		relogio.avancar(regras.duracao().minusMinutes(1));
 
 		assertThatThrownBy(() -> service.iniciar())
 			.isInstanceOfSatisfying(ProvaEmAndamentoException.class,
@@ -107,7 +108,7 @@ class ModoProvaServiceTest {
 		em.clear();
 
 		Simulado encerrada = simulados.findById(esquecida.getId()).orElseThrow();
-		assertThat(encerrada.getFinalizadoEm()).isEqualTo(RelogioDeTeste.INICIO.plus(DURACAO));
+		assertThat(encerrada.getFinalizadoEm()).isEqualTo(RelogioDeTeste.INICIO.plus(regras.duracao()));
 		assertThat(encerrada.getAcertos()).isZero();
 		assertThat(nova.isFinalizado()).isFalse();
 	}
@@ -201,14 +202,14 @@ class ModoProvaServiceTest {
 		long id = service.iniciar().getId();
 		try {
 			service.responder(id, 1, null, Duration.ofSeconds(30));
-			relogio.avancar(DURACAO.plusSeconds(1));
+			relogio.avancar(regras.duracao().plusSeconds(1));
 
 			assertThatThrownBy(() -> service.responder(id, 2, null, Duration.ofSeconds(5)))
 				.isInstanceOf(TempoEsgotadoException.class);
 
 			Simulado salvo = simulados.findById(id).orElseThrow();
 			assertThat(salvo.isFinalizado()).isTrue();
-			assertThat(salvo.getFinalizadoEm()).isEqualTo(RelogioDeTeste.INICIO.plus(DURACAO));
+			assertThat(salvo.getFinalizadoEm()).isEqualTo(RelogioDeTeste.INICIO.plus(regras.duracao()));
 			assertThat(salvo.getAcertos()).isZero();
 		}
 		finally {

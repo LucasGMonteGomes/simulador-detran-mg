@@ -22,6 +22,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import com.github.lucasgmontegomes.simulador_detran_mg.TestcontainersConfiguration;
 import com.github.lucasgmontegomes.simulador_detran_mg.conteudo.Alternativa;
 import com.github.lucasgmontegomes.simulador_detran_mg.conteudo.QuestaoRepository;
+import com.github.lucasgmontegomes.simulador_detran_mg.simulado.RegrasProva;
 import com.github.lucasgmontegomes.simulador_detran_mg.simulado.RelogioDeTeste;
 import com.github.lucasgmontegomes.simulador_detran_mg.simulado.SimuladoRepository;
 
@@ -35,10 +36,13 @@ class ProvaWebTest {
 
 	private static final Pattern URL_DA_PROVA = Pattern.compile("/prova/(\\d+)/");
 
-	private static final Duration DEPOIS_DO_PRAZO = Duration.ofMinutes(41);
+	private final Formatos formatos = new Formatos();
 
 	@Autowired
 	private MockMvcTester mvc;
+
+	@Autowired
+	private RegrasProva regras;
 
 	@Autowired
 	private QuestaoRepository questoes;
@@ -68,7 +72,7 @@ class ProvaWebTest {
 		assertThat(mvc.get().uri("/")).hasStatusOk()
 			.hasViewName("inicio")
 			.bodyText()
-			.contains("Iniciar prova", "40 minutos", "Legislação de trânsito", "21 acertos");
+			.contains("Iniciar prova", formatos.minutos(regras.duracao()), "Legislação de trânsito", "21 acertos");
 	}
 
 	@Test
@@ -90,7 +94,8 @@ class ProvaWebTest {
 		assertThat(mvc.get().uri("/prova/{id}/questoes/1", id)).hasStatusOk()
 			.hasViewName("prova/questao")
 			.bodyText()
-			.contains("Questão <strong>1</strong> de <span>30</span>", "data-restante-ms=\"2400000\"", "40:00");
+			.contains("Questão <strong>1</strong> de <span>30</span>",
+					"data-restante-ms=\"" + regras.duracao().toMillis() + "\"", formatos.relogio(regras.duracao()));
 
 		assertThat(mvc.post()
 			.uri("/prova/{id}/questoes/1", id)
@@ -130,7 +135,7 @@ class ProvaWebTest {
 	void salvamentoAutomaticoDepoisDoPrazoResponde409ComOEnderecoDoResultado() {
 		marcarQuestoesComoRevisadas(true);
 		long id = iniciarProva();
-		relogio.avancar(DEPOIS_DO_PRAZO);
+		relogio.avancar(depoisDoPrazo());
 
 		assertThat(mvc.post()
 			.uri("/prova/{id}/questoes/1/resposta", id)
@@ -142,21 +147,22 @@ class ProvaWebTest {
 	void formularioDepoisDoPrazoLevaAoResultadoComAviso() {
 		marcarQuestoesComoRevisadas(true);
 		long id = iniciarProva();
-		relogio.avancar(DEPOIS_DO_PRAZO);
+		relogio.avancar(depoisDoPrazo());
 
 		assertThat(mvc.post().uri("/prova/{id}/questoes/1", id).param("destino", "2"))
 			.hasRedirectedUrl("/prova/" + id + "/resultado")
 			.flash()
 			.containsEntry("tempoEsgotado", true);
 		assertThat(mvc.get().uri("/prova/{id}/resultado", id).flashAttr("tempoEsgotado", true)).bodyText()
-			.contains("O tempo acabou", "<span>40:00</span>", "<small>de 40:00</small>");
+			.contains("O tempo acabou", "<span>" + formatos.relogio(regras.duracao()) + "</span>",
+					"<small>de " + formatos.relogio(regras.duracao()) + "</small>");
 	}
 
 	@Test
 	void abrirUmaQuestaoDepoisDoPrazoEncerraAProva() {
 		marcarQuestoesComoRevisadas(true);
 		long id = iniciarProva();
-		relogio.avancar(DEPOIS_DO_PRAZO);
+		relogio.avancar(depoisDoPrazo());
 
 		assertThat(mvc.get().uri("/prova/{id}/questoes/5", id)).hasRedirectedUrl("/prova/" + id + "/resultado");
 	}
@@ -184,6 +190,10 @@ class ProvaWebTest {
 		assertThat(mvc.get().uri("/prova/{id}/questoes/31", id)).hasStatus(HttpStatus.BAD_REQUEST)
 			.bodyText()
 			.contains("Pedido inválido");
+	}
+
+	private Duration depoisDoPrazo() {
+		return regras.duracao().plusMinutes(1);
 	}
 
 	private long iniciarProva() {

@@ -1,0 +1,44 @@
+# Roda o simulador a partir da imagem publicada no Docker Hub, com um PostgreSQL próprio.
+#
+#   docker compose -f compose.app.yaml up -d      # depois, abra http://localhost:8080
+#   docker compose -f compose.app.yaml down       # para (o histórico de provas continua salvo)
+#
+# Este arquivo não é o compose.yaml de desenvolvimento: aquele só sobe o banco para o `./mvnw spring-boot:run`.
+
+# Nome próprio: sem ele, o Compose usaria o nome da pasta e misturaria estes containers com os do compose.yaml.
+name: simulador-detran-mg-app
+
+services:
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: simulador_detran
+      POSTGRES_USER: simulador
+      POSTGRES_PASSWORD: simulador
+    volumes:
+      - dados:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U simulador -d simulador_detran"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+
+  app:
+    # Para usar outra imagem (por exemplo, uma gerada localmente): SIMULADOR_IMAGEM=nome:tag docker compose ...
+    image: ${SIMULADOR_IMAGEM:-lucasgmontegomes/simulador-detran-mg:latest}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/simulador_detran
+      SPRING_DATASOURCE_USERNAME: simulador
+      SPRING_DATASOURCE_PASSWORD: simulador
+      # Horário das provas no histórico.
+      TZ: America/Sao_Paulo
+    ports:
+      - "127.0.0.1:${SIMULADOR_PORTA:-8080}:8080"
+    restart: unless-stopped
+
+volumes:
+  dados:
