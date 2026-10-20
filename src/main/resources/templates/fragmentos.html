@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="cabecalho(titulo)">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title th:text="|${titulo} · Simulado DETRAN-MG|">Simulado DETRAN-MG</title>
+	<link rel="icon" href="data:,">
+	<link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+	<header th:fragment="topo" class="topo">
+		<a th:href="@{/}" class="marca">Simulado DETRAN-MG</a>
+	</header>
+</body>
+</html>

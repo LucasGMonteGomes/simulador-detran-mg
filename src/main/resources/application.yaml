@@ -9,6 +9,13 @@ spring:
     hibernate:
       ddl-auto: validate
 
+server:
+  servlet:
+    session:
+      # Só cookie. Sem isso, o primeiro redirect com mensagem (flash) leva ";jsessionid=..." na URL e cai em 404,
+      # além de expor o id da sessão no endereço.
+      tracking-modes: cookie
+
 simulador:
   prova:
     total-questoes: 30

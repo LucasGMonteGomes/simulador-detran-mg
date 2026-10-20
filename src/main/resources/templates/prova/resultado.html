@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho('Resultado')}"></head>
+<body>
+	<header th:replace="~{fragmentos :: topo}"></header>
+
+	<main class="conteudo largo" th:with="r=${correcao.resultado}">
+		<p class="caixa caixa-aviso" th:if="${tempoEsgotado}">
+			O tempo acabou. A prova foi encerrada com as respostas que você já tinha marcado.
+		</p>
+
+		<section class="cartao placar" th:classappend="${r.aprovado} ? 'aprovado' : 'reprovado'">
+			<p class="selo" th:text="${r.aprovado} ? 'Aprovado' : 'Reprovado'">Aprovado</p>
+			<p class="nota">
+				<strong th:text="${r.acertos}">23</strong><span th:text="|/${r.totalQuestoes}|">/30</span>
+			</p>
+			<p class="legenda"
+				th:text="|${#numbers.formatDecimal(r.percentualAcertos(), 1, 0)}% de acertos · nota de corte: ${r.notaCorte}|">
+				77% de acertos · nota de corte: 21</p>
+			<dl class="numeros">
+				<div><dt>Acertos</dt><dd th:text="${r.acertos}">23</dd></div>
+				<div><dt>Erros</dt><dd th:text="${r.erros()}">5</dd></div>
+				<div><dt>Em branco</dt><dd th:text="${r.emBranco}">2</dd></div>
+				<div>
+					<dt>Tempo</dt>
+					<dd>
+						<span th:text="${@formatos.relogio(r.tempoUsado)}">31:20</span>
+						<small th:if="${r.duracaoProva}" th:text="|de ${@formatos.relogio(r.duracaoProva)}|">de 40:00</small>
+					</dd>
+				</div>
+			</dl>
+		</section>
+
+		<section class="cartao">
+			<h2>Por disciplina</h2>
+			<table class="tabela desempenho">
+				<thead>
+					<tr><th scope="col">Disciplina</th><th scope="col" class="numero">Acertos</th><th scope="col"><span class="sr-only">Percentual</span></th></tr>
+				</thead>
+				<tbody>
+					<tr th:each="d : ${correcao.porDisciplina}">
+						<td th:text="${d.nome}">Legislação de trânsito</td>
+						<td class="numero" th:text="|${d.acertos}/${d.total}|">10/12</td>
+						<td class="barra" th:aria-label="|${d.percentual()}%|">
+							<span class="trilha"><span class="preenchimento" th:style="|width: ${d.percentual()}%|"
+								th:classappend="${d.percentual() < 70} ? 'abaixo'"></span></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="gabarito">
+			<h2>Gabarito comentado</h2>
+			<p class="legenda">As questões que você errou ou deixou em branco já aparecem abertas.</p>
+			<details class="item" th:each="item : ${correcao.itens}" th:open="${!item.acertou()}"
+				th:classappend="${item.acertou()} ? 'acertou' : (${item.emBranco()} ? 'em-branco' : 'errou')">
+				<summary>
+					<span class="marcador" aria-hidden="true"
+						th:text="${item.acertou()} ? '✓' : (${item.emBranco()} ? '–' : '✗')">✓</span>
+					<span class="sr-only" th:text="${item.acertou()} ? 'Acertou:' : (${item.emBranco()} ? 'Em branco:' : 'Errou:')"></span>
+					<span class="numero-questao" th:text="${item.ordem}">1</span>
+					<span class="resumo" th:text="${item.enunciado}">Enunciado</span>
+					<span class="etiqueta" th:text="${item.subtema}">Subtema</span>
+				</summary>
+				<div class="corpo">
+					<img class="imagem-questao" th:if="${item.imagem}" th:src="@{/img/{arquivo}(arquivo=${item.imagem})}"
+						alt="Imagem da questão">
+					<ul class="opcoes-corrigidas">
+						<li th:each="o : ${item.alternativas}"
+							th:classappend="${o.correta} ? 'correta' : (${o.marcada} ? 'marcada-errada')">
+							<span class="letra" th:text="${o.letra}">A</span>
+							<span class="texto" th:text="${o.texto}">Texto</span>
+							<span class="rotulo" th:if="${o.correta and o.marcada}">Sua resposta · correta</span>
+							<span class="rotulo" th:if="${o.correta and !o.marcada}">Resposta correta</span>
+							<span class="rotulo" th:if="${o.marcada and !o.correta}">Sua resposta</span>
+						</li>
+					</ul>
+					<p class="explicacao" th:text="${item.explicacao}">Explicação</p>
+					<p class="referencia" th:if="${item.referencia}">
+						<span th:text="${item.referencia}">CTB art. 61</span>
+						<span class="legenda" th:text="|· ${item.disciplina} · ${@formatos.relogio(item.tempoGasto)} nesta questão|"></span>
+					</p>
+				</div>
+			</details>
+		</section>
+
+		<div class="acoes acoes-finais">
+			<a class="botao botao-secundario" th:href="@{/}">Voltar ao início</a>
+			<form method="post" th:action="@{/prova}">
+				<button type="submit" class="botao botao-primario">Fazer outra prova</button>
+			</form>
+		</div>
+	</main>
+</body>
+</html>

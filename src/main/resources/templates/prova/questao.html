@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho(|Questão ${tela.ordem}|)}"></head>
+<body>
+	<header class="topo">
+		<span class="marca">Modo Prova</span>
+		<div class="cronometro" id="cronometro" role="timer" aria-label="Tempo restante"
+			th:text="${@formatos.relogio(tela.tempoRestante)}">40:00</div>
+	</header>
+
+	<main class="conteudo">
+		<p class="caixa caixa-aviso" th:if="${aviso}" th:text="${aviso}">Você já tinha uma prova em andamento.</p>
+
+		<!--/* Sem JavaScript, cada botão envia o formulário e a resposta é salva do mesmo jeito. */-->
+		<form id="form-questao" method="post"
+			th:action="@{/prova/{id}/questoes/{ordem}(id=${tela.simuladoId},ordem=${tela.ordem})}"
+			th:data-restante-ms="${tela.tempoRestante.toMillis()}"
+			th:data-total="${tela.totalQuestoes}"
+			th:data-url-salvar="@{/prova/{id}/questoes/{ordem}/resposta(id=${tela.simuladoId},ordem=${tela.ordem})}"
+			th:data-url-resultado="@{/prova/{id}/resultado(id=${tela.simuladoId})}">
+
+			<input type="hidden" name="tempoGastoMs" value="0">
+			<!--/* Primeiro botão do formulário: é o que o Enter aciona. Avança sem depender da ordem visual. */-->
+			<button type="submit" class="botao-padrao" name="destino" tabindex="-1" aria-hidden="true"
+				th:value="${tela.temProxima()} ? ${tela.ordem + 1} : ${tela.ordem}">Salvar</button>
+
+			<section class="cartao questao">
+				<p class="contador">
+					Questão <strong th:text="${tela.ordem}">1</strong> de <span th:text="${tela.totalQuestoes}">30</span>
+				</p>
+				<h1 class="enunciado" th:text="${tela.enunciado}">Enunciado da questão</h1>
+				<img class="imagem-questao" th:if="${tela.imagem}" th:src="@{/img/{arquivo}(arquivo=${tela.imagem})}"
+					alt="Imagem da questão">
+
+				<fieldset class="alternativas">
+					<legend class="sr-only">Alternativas</legend>
+					<label class="alternativa" th:each="opcao : ${tela.alternativas}">
+						<input type="radio" name="alternativaId" th:value="${opcao.id}"
+							th:checked="${opcao.id == tela.alternativaMarcadaId}">
+						<span class="letra" th:text="${opcao.letra}">A</span>
+						<span class="texto" th:text="${opcao.texto}">Texto da alternativa</span>
+					</label>
+				</fieldset>
+				<p class="legenda dica-teclado">Dica: as teclas A, B, C e D marcam a alternativa.</p>
+			</section>
+
+			<nav class="navegacao" aria-label="Navegação entre questões">
+				<button type="submit" class="botao botao-secundario" name="destino" th:if="${tela.temAnterior()}"
+					th:value="${tela.ordem - 1}">← Anterior</button>
+				<span th:unless="${tela.temAnterior()}"></span>
+				<button type="submit" class="botao botao-primario" name="destino" th:if="${tela.temProxima()}"
+					th:value="${tela.ordem + 1}">Próxima →</button>
+			</nav>
+
+			<section class="cartao painel">
+				<h2 class="titulo-painel">
+					Questões
+					<span class="legenda" id="resumo-respostas"
+						th:text="|${tela.respondidas.size()} ${tela.respondidas.size() == 1 ? 'respondida' : 'respondidas'} · ${tela.emBranco()} em branco|">0 respondidas</span>
+				</h2>
+				<div class="grade-questoes">
+					<button type="submit" name="destino" th:each="n : ${#numbers.sequence(1, tela.totalQuestoes)}"
+						th:value="${n}" th:text="${n}"
+						th:classappend="${tela.respondida(n)} ? 'respondida'"
+						th:aria-current="${n == tela.ordem} ? 'step'"
+						th:aria-label="|Questão ${n}${tela.respondida(n) ? ', respondida' : ''}|">1</button>
+				</div>
+			</section>
+
+			<div class="encerrar">
+				<button type="submit" class="botao botao-perigo" name="destino" value="encerrar">Encerrar prova</button>
+			</div>
+		</form>
+	</main>
+
+	<script th:src="@{/js/prova.js}" defer></script>
+</body>
+</html>

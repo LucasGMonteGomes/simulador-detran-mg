@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho('Início')}"></head>
+<body>
+	<header th:replace="~{fragmentos :: topo}"></header>
+
+	<main class="conteudo">
+		<section class="apresentacao">
+			<h1>Prepare-se para a prova teórica</h1>
+			<p>Simulados no formato da prova do DETRAN-MG, com cronômetro e correção comentada de cada questão.</p>
+		</section>
+
+		<div class="caixa caixa-erro" role="alert" th:if="${faltas}">
+			<strong>Ainda não dá para montar uma prova.</strong>
+			<p>
+				Faltam questões revisadas. Confira as questões nos arquivos de
+				<code>src/main/resources/questoes</code>, marque <code>revisada: true</code> e reinicie a aplicação.
+			</p>
+			<ul>
+				<li th:each="falta : ${faltas}" th:text="${falta}">legislacao: precisa de 12, há 0</li>
+			</ul>
+		</div>
+
+		<section class="cartao">
+			<h2>Modo Prova</h2>
+			<ul class="regras">
+				<li><strong th:text="${regras.totalQuestoes}">30</strong> questões de múltipla escolha</li>
+				<li><strong th:text="${@formatos.minutos(regras.duracao)}">40 minutos</strong> para responder</li>
+				<li>Aprovação com <strong th:text="|${regras.notaCorte} acertos|">21 acertos</strong>
+					(<span th:text="|${regras.notaCorte * 100 / regras.totalQuestoes}%|">70%</span>)</li>
+			</ul>
+
+			<table class="tabela distribuicao">
+				<caption>Questões por disciplina</caption>
+				<tbody>
+					<tr th:each="item : ${distribuicao}">
+						<td th:text="${item.disciplina}">Legislação de trânsito</td>
+						<td class="numero" th:text="${item.questoes}">12</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="acoes" th:if="${provaEmAndamento}">
+				<p class="caixa caixa-aviso">Você tem uma prova em andamento. O cronômetro continua correndo.</p>
+				<a class="botao botao-primario botao-grande" th:href="@{/prova/{id}(id=${provaEmAndamento})}">Continuar prova</a>
+			</div>
+			<form class="acoes" method="post" th:action="@{/prova}" th:unless="${provaEmAndamento}">
+				<button type="submit" class="botao botao-primario botao-grande">Iniciar prova</button>
+			</form>
+			<p class="legenda">
+				O cronômetro começa assim que a prova é iniciada. Cada resposta é salva na hora: se a aba fechar, é só
+				voltar e continuar.
+			</p>
+		</section>
+	</main>
+</body>
+</html>

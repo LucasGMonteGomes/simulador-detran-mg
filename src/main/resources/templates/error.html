@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<!--/* Usado pelos erros tratados no TratamentoDeErros e também pela página de erro padrão do Spring Boot. */-->
+<head th:replace="~{fragmentos :: cabecalho('Erro')}"></head>
+<body>
+	<header th:replace="~{fragmentos :: topo}"></header>
+
+	<main class="conteudo">
+		<section class="cartao">
+			<p class="legenda" th:if="${status}" th:text="|Erro ${status}|">Erro 404</p>
+			<h1 th:text="${titulo} ?: 'Algo deu errado'">Algo deu errado</h1>
+			<p th:text="${mensagem} ?: 'Não foi possível concluir o pedido.'">Não foi possível concluir o pedido.</p>
+			<div class="acoes">
+				<a class="botao botao-primario" th:href="@{/}">Voltar ao início</a>
+			</div>
+		</section>
+	</main>
+</body>
+</html>
