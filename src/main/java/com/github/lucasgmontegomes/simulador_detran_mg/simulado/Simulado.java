@@ -122,7 +122,7 @@ public class Simulado {
 		return expiraEm != null && !agora.isBefore(expiraEm);
 	}
 
-	private Resposta respostaNaOrdem(int ordem) {
+	public Resposta respostaNaOrdem(int ordem) {
 		if (ordem < 1 || ordem > respostas.size()) {
 			throw new IllegalArgumentException("Questão inexistente no simulado: " + ordem);
 		}

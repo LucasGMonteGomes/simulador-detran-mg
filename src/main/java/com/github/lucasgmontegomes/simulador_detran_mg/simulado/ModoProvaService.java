@@ -101,6 +101,21 @@ public class ModoProvaService {
 		return ResultadoProva.de(simulado);
 	}
 
+	/**
+	 * Encerra a prova se o prazo já passou. Usado quando a tela é aberta depois do fim do tempo (aba esquecida,
+	 * computador que hibernou), para mandar direto ao resultado.
+	 *
+	 * @return {@code true} se a prova está encerrada (agora ou antes)
+	 */
+	public boolean encerrarSeVencida(long simuladoId) {
+		Simulado simulado = buscar(simuladoId);
+		Instant agora = relogio.instant();
+		if (!simulado.isFinalizado() && simulado.isExpirado(agora)) {
+			simulado.finalizar(agora);
+		}
+		return simulado.isFinalizado();
+	}
+
 	private void encerrarProvaVencida(Instant agora) {
 		Optional<Simulado> aberta = simulados.findFirstByModoAndFinalizadoEmIsNullOrderByIniciadoEmDesc(ModoSimulado.PROVA);
 		if (aberta.isEmpty()) {
