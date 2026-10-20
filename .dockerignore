@@ -1,0 +1,11 @@
+# O build acontece dentro da imagem: nada daqui precisa ir para o contexto do Docker.
+target/
+.git/
+.github/
+.idea/
+.vscode/
+*.iml
+scripts/
+**/__pycache__/
+HELP.md
+compose*.yaml
