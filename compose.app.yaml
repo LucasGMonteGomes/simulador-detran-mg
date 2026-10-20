@@ -1,4 +1,4 @@
-# Roda o simulador a partir da imagem publicada no Docker Hub, com um PostgreSQL próprio.
+# Roda o simulador a partir da imagem publicada no GitHub Container Registry, com um PostgreSQL próprio.
 #
 #   docker compose -f compose.app.yaml up -d      # depois, abra http://localhost:8080
 #   docker compose -f compose.app.yaml down       # para (o histórico de provas continua salvo)
@@ -26,7 +26,7 @@ services:
 
   app:
     # Para usar outra imagem (por exemplo, uma gerada localmente): SIMULADOR_IMAGEM=nome:tag docker compose ...
-    image: ${SIMULADOR_IMAGEM:-lucasgmontegomes/simulador-detran-mg:latest}
+    image: ${SIMULADOR_IMAGEM:-ghcr.io/lucasgmontegomes/simulador-detran-mg:latest}
     depends_on:
       postgres:
         condition: service_healthy

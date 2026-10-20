@@ -1,6 +1,7 @@
 # Simulado DETRAN-MG
 
 [![Testes](https://github.com/LucasGMonteGomes/simulador-detran-mg/actions/workflows/testes.yml/badge.svg)](https://github.com/LucasGMonteGomes/simulador-detran-mg/actions/workflows/testes.yml)
+[![Imagem](https://github.com/LucasGMonteGomes/simulador-detran-mg/actions/workflows/publicar-imagem.yml/badge.svg)](https://github.com/LucasGMonteGomes/simulador-detran-mg/pkgs/container/simulador-detran-mg)
 
 Sistema web para estudar para a prova teórica do DETRAN-MG com simulados no formato da prova, correção
 comentada e acompanhamento da evolução.
@@ -30,12 +31,15 @@ curl -O https://raw.githubusercontent.com/LucasGMonteGomes/simulador-detran-mg/m
 docker compose -f compose.app.yaml up -d
 ```
 
-Depois, abra **http://localhost:8080**. Isso sobe dois containers: a aplicação e um PostgreSQL só para ela.
+Depois, abra **http://localhost:8080**. Isso sobe dois containers: a aplicação e um PostgreSQL só para ela. A
+imagem da aplicação vem do [GitHub Container Registry](https://github.com/LucasGMonteGomes/simulador-detran-mg/pkgs/container/simulador-detran-mg)
+e funciona em processadores Intel/AMD e ARM (como Macs com Apple Silicon).
 
 | Para | Comando |
 |---|---|
 | Parar (o histórico continua salvo) | `docker compose -f compose.app.yaml down` |
 | Atualizar para a versão mais nova | `docker compose -f compose.app.yaml pull && docker compose -f compose.app.yaml up -d` |
+| Usar uma versão específica (ex.: 1.1.0) | `SIMULADOR_IMAGEM=ghcr.io/lucasgmontegomes/simulador-detran-mg:1.1.0 docker compose -f compose.app.yaml up -d` |
 | Usar outra porta (ex.: 9090) | `SIMULADOR_PORTA=9090 docker compose -f compose.app.yaml up -d` |
 | Ver os logs | `docker compose -f compose.app.yaml logs -f app` |
 | Apagar tudo, inclusive o histórico | `docker compose -f compose.app.yaml down -v` |
@@ -111,29 +115,41 @@ curl -L -o l9503compilado.htm https://www.planalto.gov.br/ccivil_03/leis/l9503co
 python3 scripts/extrair_ctb.py l9503compilado.htm src/main/resources/fontes/ctb.txt
 ```
 
-## Publicar a imagem no Docker Hub
+## Publicar uma nova versão
 
-O [`Dockerfile`](Dockerfile) compila o projeto dentro da imagem, então não é preciso ter Java instalado para
-gerar a imagem. Troque `lucasgmontegomes` pelo seu usuário do Docker Hub, se for diferente. Nesse caso, troque
-também o nome da imagem no [`compose.app.yaml`](compose.app.yaml).
+Quem publica a imagem é o GitHub Actions, no GitHub Container Registry (a seção **Packages** do repositório).
+Ninguém precisa rodar `docker push`: basta criar a tag da versão.
+
+1. Num branch, troque a versão no `pom.xml` (ex.: `1.2.0`) e passe o que estiver em "Não lançado" no
+   [CHANGELOG](CHANGELOG.md) para uma seção com a versão e a data. Abra o PR e faça o merge.
+2. Crie a tag no commit do merge e envie. O `-s` assina a tag; sem chave de assinatura configurada, use `-a`.
+
+   ```bash
+   git switch main && git pull
+   git tag -s V1.2.0 -m "Versão 1.2.0"
+   git push origin V1.2.0
+   ```
+
+3. O workflow [`publicar-imagem.yml`](.github/workflows/publicar-imagem.yml) gera a imagem para amd64 e arm64 e
+   publica `ghcr.io/lucasgmontegomes/simulador-detran-mg:1.2.0` e `:latest`. Se a versão do `pom.xml` não for a
+   da tag, ele para antes de publicar.
+
+Para publicar uma tag que já existia ou republicar uma versão, rode o workflow pela aba **Actions** ("Run
+workflow") ou pelo `gh`. Republicar uma versão antiga não mexe na `latest`, que continua na versão mais nova.
 
 ```bash
-docker login
-docker build -t lucasgmontegomes/simulador-detran-mg:latest .
-docker push lucasgmontegomes/simulador-detran-mg:latest
+gh workflow run publicar-imagem.yml -f tag=V1.1.0
 ```
 
-Para a imagem funcionar também em computadores com processador ARM (como Macs com Apple Silicon), gere as duas
-arquiteturas de uma vez com o `buildx`:
+### Gerar a imagem localmente
+
+O [`Dockerfile`](Dockerfile) compila o projeto dentro da imagem, então não é preciso ter Java instalado. Para
+testar uma mudança dentro do Docker, sem publicar nada:
 
 ```bash
-docker buildx create --use --name simulador
-docker buildx build --platform linux/amd64,linux/arm64 \
-  -t lucasgmontegomes/simulador-detran-mg:latest --push .
+docker build -t simulador-detran-mg:local .
+SIMULADOR_IMAGEM=simulador-detran-mg:local docker compose -f compose.app.yaml up -d
 ```
-
-Dica: além de `latest`, publique uma tag com a versão (ex.: `-t lucasgmontegomes/simulador-detran-mg:1.1.0`),
-para dar para voltar a uma versão anterior.
 
 ## Configuração
 
