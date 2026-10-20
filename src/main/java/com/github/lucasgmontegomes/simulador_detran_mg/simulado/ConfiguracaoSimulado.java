@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(RegrasProva.class)
-class ConfiguracaoSimulado {
+public class ConfiguracaoSimulado {
 
 	/** Fonte única do horário: nos testes, é trocada por um relógio controlado para simular o tempo passando. */
 	@Bean
