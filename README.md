@@ -21,31 +21,147 @@ comentada e acompanhamento da evolução.
 - **Banco de questões em YAML:** fácil de revisar e de ampliar. Toda questão que cita o CTB tem o trecho da lei
   conferido automaticamente contra o texto oficial.
 
-## Usar com Docker (o jeito mais fácil)
+## Como usar
 
-Só é preciso ter o [Docker](https://docs.docker.com/get-docker/) instalado, com o Docker Compose. Baixe o
-arquivo de configuração e suba a aplicação:
+O simulador roda no Docker, então não é preciso instalar Java nem banco de dados. Funciona no Windows, no macOS e
+no Linux, em processadores Intel/AMD e ARM (como Macs com Apple Silicon). A imagem fica no
+[GitHub Packages](https://github.com/LucasGMonteGomes/simulador-detran-mg/pkgs/container/simulador-detran-mg)
+deste repositório.
+
+> [!TIP]
+> Para copiar um comando, passe o mouse sobre o bloco e clique no botão de copiar, no canto direito.
+
+### 1. Instale o Docker
+
+- **Windows ou macOS:** instale o [Docker Desktop](https://docs.docker.com/desktop/) e abra o programa. Ele
+  precisa estar aberto sempre que você for usar o simulador.
+- **Linux:** instale o [Docker Engine](https://docs.docker.com/engine/install/) com o plugin do Docker Compose.
+
+Para conferir, abra um terminal (no Windows, o PowerShell) e rode o comando abaixo. Ele deve mostrar a versão do
+Docker Compose.
 
 ```bash
-curl -O https://raw.githubusercontent.com/LucasGMonteGomes/simulador-detran-mg/main/compose.app.yaml
-docker compose -f compose.app.yaml up -d
+docker compose version
 ```
 
-Depois, abra **http://localhost:8080**. Isso sobe dois containers: a aplicação e um PostgreSQL só para ela. A
-imagem da aplicação vem do [GitHub Container Registry](https://github.com/LucasGMonteGomes/simulador-detran-mg/pkgs/container/simulador-detran-mg)
-e funciona em processadores Intel/AMD e ARM (como Macs com Apple Silicon).
+### 2. Crie uma pasta para o simulador
 
-| Para | Comando |
-|---|---|
-| Parar (o histórico continua salvo) | `docker compose -f compose.app.yaml down` |
-| Atualizar para a versão mais nova | `docker compose -f compose.app.yaml pull && docker compose -f compose.app.yaml up -d` |
-| Usar uma versão específica (ex.: 1.1.0) | `SIMULADOR_IMAGEM=ghcr.io/lucasgmontegomes/simulador-detran-mg:1.1.0 docker compose -f compose.app.yaml up -d` |
-| Usar outra porta (ex.: 9090) | `SIMULADOR_PORTA=9090 docker compose -f compose.app.yaml up -d` |
-| Ver os logs | `docker compose -f compose.app.yaml logs -f app` |
-| Apagar tudo, inclusive o histórico | `docker compose -f compose.app.yaml down -v` |
+```bash
+mkdir simulador-detran-mg
+cd simulador-detran-mg
+```
 
+### 3. Baixe o arquivo de configuração
+
+O arquivo diz ao Docker o que subir: a aplicação e um PostgreSQL só para ela. Ele é salvo com o nome
+`compose.yaml`, que é o nome que o Docker Compose procura sozinho.
+
+Linux e macOS:
+
+```bash
+curl -o compose.yaml https://raw.githubusercontent.com/LucasGMonteGomes/simulador-detran-mg/main/compose.app.yaml
+```
+
+Windows (PowerShell):
+
+```powershell
+curl.exe -o compose.yaml https://raw.githubusercontent.com/LucasGMonteGomes/simulador-detran-mg/main/compose.app.yaml
+```
+
+Prefere o navegador? Abra o [`compose.app.yaml`](compose.app.yaml), clique em **Download raw file** e salve o
+arquivo na pasta do simulador com o nome `compose.yaml`.
+
+### 4. Inicie o simulador
+
+```bash
+docker compose up -d
+```
+
+Na primeira vez, o Docker baixa cerca de 330 MB, o que pode levar alguns minutos.
+
+### 5. Abra no navegador
+
+Acesse **http://localhost:8080**. Se a página não abrir de primeira, espere alguns segundos: a aplicação demora
+um pouco para iniciar.
+
+> [!NOTE]
 > Se a tela inicial disser **"Ainda não dá para montar uma prova"**, a imagem foi gerada antes de existirem
 > questões revisadas suficientes (veja [Banco de questões](#banco-de-questões)).
+
+### No dia a dia
+
+Rode os comandos sempre de dentro da pasta `simulador-detran-mg`.
+
+**Parar o simulador.** O histórico de provas continua salvo.
+
+```bash
+docker compose down
+```
+
+**Iniciar de novo.**
+
+```bash
+docker compose up -d
+```
+
+Enquanto não for parado com o `down`, o simulador volta sozinho quando o computador reinicia. No Windows e no
+macOS, isso depende de o Docker Desktop abrir junto com o sistema.
+
+**Atualizar para a versão mais nova.** Baixa a imagem nova e reinicia a aplicação. O histórico continua salvo.
+
+```bash
+docker compose up -d --pull always
+```
+
+**Ver os logs**, se algo der errado. Para sair, aperte `Ctrl+C`.
+
+```bash
+docker compose logs -f app
+```
+
+**Apagar tudo, inclusive o histórico de provas.** Não tem como desfazer.
+
+```bash
+docker compose down -v
+```
+
+### Trocar a porta ou fixar uma versão
+
+Essas opções ficam num arquivo `.env`, na pasta do simulador. O Docker Compose lê esse arquivo sozinho, então
+a configuração vale para todos os comandos acima.
+
+| Variável | Para que serve | Padrão |
+|---|---|---|
+| `SIMULADOR_PORTA` | Porta do simulador no seu computador | `8080` |
+| `SIMULADOR_IMAGEM` | Imagem da aplicação; troque `latest` por uma versão, como `1.1.0`, para fixá-la | `ghcr.io/lucasgmontegomes/simulador-detran-mg:latest` |
+
+Por exemplo, para usar a porta 9090 quando a 8080 já estiver ocupada:
+
+Linux e macOS:
+
+```bash
+echo "SIMULADOR_PORTA=9090" >> .env
+```
+
+Windows (PowerShell):
+
+```powershell
+Add-Content .env "SIMULADOR_PORTA=9090"
+```
+
+Depois, aplique a mudança com `docker compose up -d` e abra http://localhost:9090.
+
+### Problemas comuns
+
+- **`Cannot connect to the Docker daemon` ou `error during connect`:** o Docker não está rodando. No Windows e no
+  macOS, abra o Docker Desktop e espere ele terminar de iniciar.
+- **`permission denied while trying to connect to the Docker daemon socket` (Linux):** o seu usuário não está no
+  grupo `docker`. Siga os [passos depois da instalação](https://docs.docker.com/engine/install/linux-postinstall/)
+  ou rode os comandos com `sudo`.
+- **`port is already allocated`:** outro programa já usa a porta 8080. Troque a porta no `.env`, como mostrado
+  acima.
+- **`no configuration file provided: not found`:** o terminal não está na pasta do simulador, ou o arquivo não
+  se chama `compose.yaml`. Entre na pasta com `cd` e confira o nome do arquivo.
 
 ## Desenvolvimento
 

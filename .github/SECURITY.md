@@ -13,7 +13,8 @@ tem login nem separação entre usuários. Por isso:
 ## Versões com suporte
 
 Só a versão mais recente recebe correções: o branch `main` e a imagem `latest` no GitHub Container Registry. Se
-estiver usando uma imagem antiga, atualize com `docker compose -f compose.app.yaml pull` antes de reportar.
+estiver usando uma imagem antiga, atualize com `docker compose up -d --pull always`, na pasta do simulador, antes
+de reportar.
 
 ## Como reportar uma vulnerabilidade
 
