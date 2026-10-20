@@ -1,9 +1,12 @@
 # Roda o simulador a partir da imagem publicada no GitHub Container Registry, com um PostgreSQL próprio.
 #
-#   docker compose -f compose.app.yaml up -d      # depois, abra http://localhost:8080
-#   docker compose -f compose.app.yaml down       # para (o histórico de provas continua salvo)
+# Para só usar o simulador, salve este arquivo como compose.yaml numa pasta só para ele (passo a passo no README):
+#   docker compose up -d      # depois, abra http://localhost:8080
+#   docker compose down       # para (o histórico de provas continua salvo)
+# A porta e a imagem podem ser trocadas num arquivo .env ao lado dele (SIMULADOR_PORTA e SIMULADOR_IMAGEM).
 #
-# Este arquivo não é o compose.yaml de desenvolvimento: aquele só sobe o banco para o `./mvnw spring-boot:run`.
+# Dentro do repositório, use docker compose -f compose.app.yaml ...: lá, o compose.yaml é o de desenvolvimento, que
+# só sobe o banco para o `./mvnw spring-boot:run`.
 
 # Nome próprio: sem ele, o Compose usaria o nome da pasta e misturaria estes containers com os do compose.yaml.
 name: simulador-detran-mg-app
@@ -25,7 +28,7 @@ services:
     restart: unless-stopped
 
   app:
-    # Para usar outra imagem (por exemplo, uma gerada localmente): SIMULADOR_IMAGEM=nome:tag docker compose ...
+    # Outra imagem (uma versão fixa ou uma gerada localmente): SIMULADOR_IMAGEM=nome:tag no .env.
     image: ${SIMULADOR_IMAGEM:-ghcr.io/lucasgmontegomes/simulador-detran-mg:latest}
     depends_on:
       postgres:

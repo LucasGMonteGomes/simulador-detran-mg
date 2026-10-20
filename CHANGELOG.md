@@ -14,6 +14,8 @@ As mudanças que importam para quem usa o simulador ficam registradas aqui. O fo
 ### Alterado
 
 - O `compose.app.yaml` passa a baixar a imagem do GitHub Container Registry.
+- README com um passo a passo de instalação para Windows, macOS e Linux, comandos curtos (o arquivo é salvo como
+  `compose.yaml`), configuração da porta e da versão pelo `.env` e soluções para os erros mais comuns.
 
 ## [1.1.0] - 2026-10-19
 
