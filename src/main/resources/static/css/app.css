@@ -18,6 +18,8 @@
 	--atencao: #9a5b00;
 	--atencao-suave: #fff3df;
 	--foco: #2f7cf6;
+	/* Cor da série nos gráficos (validada contra a superfície de cada tema). */
+	--serie: #1d5bbf;
 	--sombra: 0 1px 2px rgb(16 24 40 / 6%), 0 1px 3px rgb(16 24 40 / 8%);
 	--raio: 12px;
 	color-scheme: light;
@@ -42,6 +44,7 @@
 		--atencao: #f5b546;
 		--atencao-suave: #2b200d;
 		--foco: #8ab8f8;
+		--serie: #5a94e8;
 		--sombra: none;
 		color-scheme: dark;
 	}
@@ -86,6 +89,10 @@ a { color: var(--primaria); }
 	outline-offset: 2px;
 }
 
+[hidden] {
+	display: none !important;
+}
+
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -115,6 +122,19 @@ a { color: var(--primaria); }
 	color: var(--texto);
 	text-decoration: none;
 }
+
+.menu {
+	display: flex;
+	gap: 1.1rem;
+}
+
+.menu a {
+	color: var(--texto-suave);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.menu a:hover { color: var(--texto); }
 
 .conteudo {
 	width: 100%;
@@ -646,3 +666,113 @@ a { color: var(--primaria); }
 .referencia { font-size: 0.9rem; font-weight: 600; margin: 0; }
 
 .acoes-finais { margin-top: 1.5rem; }
+
+/* ---------- Histórico ---------- */
+
+.estatisticas {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0.75rem;
+	margin-bottom: 1rem;
+}
+
+@media (max-width: 720px) {
+	.estatisticas { grid-template-columns: repeat(2, 1fr); }
+}
+
+.estatistica {
+	display: grid;
+	align-content: start;
+	gap: 0.15rem;
+	background: var(--superficie);
+	border: 1px solid var(--borda);
+	border-radius: var(--raio);
+	box-shadow: var(--sombra);
+	padding: 0.9rem 1rem;
+}
+
+.rotulo-estatistica { font-size: 0.85rem; color: var(--texto-suave); }
+.estatistica strong { font-size: 1.6rem; line-height: 1.2; }
+.estatistica small { font-size: 0.8rem; color: var(--texto-suave); }
+.estatistica small.subiu { color: var(--sucesso); }
+.estatistica small.caiu { color: var(--erro); }
+
+.grafico { margin: 0 0 1rem; }
+.grafico figcaption h2 { margin-bottom: 0.25rem; }
+.grafico-corpo { position: relative; }
+.grafico-area svg { display: block; overflow: visible; }
+
+.grafico .grade { stroke: var(--borda); stroke-width: 1; }
+.grafico .corte { stroke: var(--texto-suave); stroke-width: 1.5; }
+.grafico .cruz { stroke: var(--texto-suave); stroke-width: 1; }
+
+.grafico .eixo {
+	fill: var(--texto-suave);
+	font-size: 12px;
+	font-variant-numeric: tabular-nums;
+}
+
+.grafico .rotulo-corte { fill: var(--texto-suave); font-size: 12px; font-weight: 600; }
+.grafico .rotulo-ponto { fill: var(--texto); font-size: 13px; font-weight: 700; }
+
+.grafico .linha {
+	fill: none;
+	stroke: var(--serie);
+	stroke-width: 2;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+}
+
+/* Anel na cor da superfície: o ponto continua legível onde cruza a linha. */
+.grafico .ponto { fill: var(--serie); stroke: var(--superficie); stroke-width: 2; }
+.grafico .ponto.ativo { r: 6px; }
+
+.grafico .alvo { cursor: pointer; }
+.grafico .alvo:focus { outline: none; }
+.grafico .alvo:focus-visible rect { stroke: var(--foco); stroke-width: 2; }
+
+.grafico-dica {
+	position: absolute;
+	z-index: 2;
+	display: grid;
+	gap: 0.1rem;
+	padding: 0.5rem 0.7rem;
+	background: var(--superficie);
+	border: 1px solid var(--borda);
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgb(16 24 40 / 14%);
+	font-size: 0.85rem;
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+.grafico-dica strong { font-size: 1rem; }
+.grafico-dica span { color: var(--texto-suave); }
+
+.tabela-rolavel { overflow-x: auto; }
+
+.situacao { font-weight: 600; white-space: nowrap; }
+.situacao.aprovado { color: var(--sucesso); }
+.situacao.reprovado { color: var(--erro); }
+
+.subtemas .disciplina {
+	display: block;
+	font-size: 0.8rem;
+	color: var(--texto-suave);
+}
+
+.taxa {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	min-width: 10rem;
+}
+
+.taxa .trilha { flex: 1; min-width: 4rem; }
+.taxa-valor { min-width: 2.6rem; text-align: right; font-variant-numeric: tabular-nums; }
+.aviso-dados { font-size: 0.75rem; color: var(--atencao); white-space: nowrap; }
+
+.tendencia { font-size: 0.9rem; white-space: nowrap; }
+.tendencia.subiu { color: var(--sucesso); }
+.tendencia.caiu { color: var(--erro); }
+.tendencia.sem-dados { color: var(--texto-suave); }

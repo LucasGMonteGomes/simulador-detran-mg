@@ -10,6 +10,10 @@
 <body>
 	<header th:fragment="topo" class="topo">
 		<a th:href="@{/}" class="marca">Simulado DETRAN-MG</a>
+		<nav class="menu" aria-label="Principal">
+			<a th:href="@{/}">Início</a>
+			<a th:href="@{/historico}">Histórico</a>
+		</nav>
 	</header>
 </body>
 </html>
