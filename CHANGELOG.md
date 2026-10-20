@@ -35,6 +35,6 @@ As mudanças que importam para quem usa o simulador ficam registradas aqui. O fo
 - Banco inicial de 60 questões em YAML, com os trechos do CTB conferidos contra o texto vigente da lei.
 - Importação das questões na inicialização, com uma nova versão sempre que uma questão é alterada.
 
-[Não lançado]: https://github.com/LucasGMonteGomes/simulador-detran-mg/compare/v1.1.0...HEAD
-[1.1.0]: https://github.com/LucasGMonteGomes/simulador-detran-mg/compare/V1.0.0...v1.1.0
+[Não lançado]: https://github.com/LucasGMonteGomes/simulador-detran-mg/compare/V1.1.0...HEAD
+[1.1.0]: https://github.com/LucasGMonteGomes/simulador-detran-mg/compare/V1.0.0...V1.1.0
 [1.0.0]: https://github.com/LucasGMonteGomes/simulador-detran-mg/tree/V1.0.0
