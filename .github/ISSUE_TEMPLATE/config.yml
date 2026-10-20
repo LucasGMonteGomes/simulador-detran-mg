@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Reportar uma vulnerabilidade
+    url: https://github.com/LucasGMonteGomes/simulador-detran-mg/security/advisories/new
+    about: Falhas de segurança devem ser reportadas em privado, nunca em uma issue pública.

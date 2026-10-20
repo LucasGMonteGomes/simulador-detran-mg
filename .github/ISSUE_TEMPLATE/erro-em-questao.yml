@@ -1,0 +1,57 @@
+name: Erro em uma questão
+description: Gabarito errado, enunciado confuso, regra desatualizada ou explicação incorreta.
+title: "[Questão] "
+labels: ["questao-com-erro"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por avisar! Um gabarito errado ensina errado, então cada correção conta.
+        O código da questão aparece na correção comentada da prova (ex.: `INF-001`) e no arquivo YAML.
+
+  - type: input
+    id: codigo
+    attributes:
+      label: Código da questão
+      placeholder: INF-001
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: O que está errado?
+      options:
+        - O gabarito (a alternativa marcada como correta)
+        - O enunciado está confuso ou ambíguo
+        - Uma alternativa tem erro ou mais de uma está certa
+        - A explicação está errada ou incompleta
+        - A referência legal ou o trecho do CTB não confere
+        - A regra mudou e a questão está desatualizada
+        - Outro
+    validations:
+      required: true
+
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição
+      description: O que você esperava e o que a questão diz.
+    validations:
+      required: true
+
+  - type: textarea
+    id: fonte
+    attributes:
+      label: Fonte
+      description: >
+        Artigo do CTB, resolução do CONTRAN ou manual que mostra a resposta certa. Um link para o texto oficial
+        ajuda muito (ex.: https://www.planalto.gov.br/ccivil_03/leis/l9503compilado.htm).
+      placeholder: CTB art. 261, I, b
+
+  - type: checkboxes
+    id: conferencia
+    attributes:
+      label: Conferência
+      options:
+        - label: Conferi no texto vigente da lei ou do manual citado.
