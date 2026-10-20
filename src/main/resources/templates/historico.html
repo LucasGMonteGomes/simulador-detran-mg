@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho('Histórico')}"></head>
+<body>
+	<header th:replace="~{fragmentos :: topo}"></header>
+
+	<main class="conteudo largo">
+		<h1>Histórico</h1>
+
+		<section class="cartao" th:if="${resumo.quantidade() == 0}">
+			<p>Você ainda não terminou nenhuma prova. Faça a primeira para começar a acompanhar a sua evolução.</p>
+			<div class="acoes">
+				<a class="botao botao-primario" th:href="@{/}">Ir para o início</a>
+			</div>
+		</section>
+
+		<th:block th:unless="${resumo.quantidade() == 0}" th:with="ultima=${resumo.ultima().get()}">
+			<section class="estatisticas" aria-label="Resumo">
+				<div class="estatistica">
+					<span class="rotulo-estatistica">Provas feitas</span>
+					<strong th:text="${resumo.quantidade()}">6</strong>
+				</div>
+				<div class="estatistica">
+					<span class="rotulo-estatistica">Última prova</span>
+					<strong th:text="|${ultima.acertos}/${ultima.totalQuestoes}|">24/30</strong>
+					<small th:if="${resumo.variacaoDaUltima().isPresent()}"
+						th:with="v=${resumo.variacaoDaUltima().get()}"
+						th:classappend="${v > 0} ? 'subiu' : (${v < 0} ? 'caiu')"
+						th:text="|${@formatos.comSinal(v)} em relação à anterior|">+2 em relação à anterior</small>
+				</div>
+				<div class="estatistica">
+					<span class="rotulo-estatistica" th:text="|Média das últimas ${resumo.recentes().size()}|">Média das últimas 5</span>
+					<strong th:text="${@formatos.decimal(resumo.mediaRecente())}">19,4</strong>
+					<small th:text="|acertos (corte: ${ultima.notaCorte})|">acertos (corte: 21)</small>
+				</div>
+				<div class="estatistica">
+					<span class="rotulo-estatistica">Aprovação recente</span>
+					<strong th:text="|${resumo.aprovadasRecentes()} de ${resumo.recentes().size()}|">3 de 5</strong>
+					<small th:text="|últimas provas · melhor nota: ${resumo.melhorNota()}|">últimas provas</small>
+				</div>
+			</section>
+
+			<!--/* Desenhado pelo historico.js a partir da tabela de provas; sem JavaScript, fica escondido. */-->
+			<figure class="cartao grafico" id="grafico-evolucao" hidden>
+				<figcaption>
+					<h2>Acertos por prova</h2>
+					<p class="legenda">
+						A linha horizontal marca a nota de corte. Passe o mouse ou use Tab nos pontos para ver os
+						detalhes; clique para abrir a correção.
+					</p>
+				</figcaption>
+				<div class="grafico-corpo">
+					<div class="grafico-area"></div>
+					<div class="grafico-dica" role="status" hidden></div>
+				</div>
+			</figure>
+
+			<section class="cartao">
+				<h2>Provas</h2>
+				<div class="tabela-rolavel">
+					<table class="tabela" id="tabela-provas">
+						<thead>
+							<tr>
+								<th scope="col" class="numero">Nº</th>
+								<th scope="col">Data</th>
+								<th scope="col" class="numero">Acertos</th>
+								<th scope="col">Resultado</th>
+								<th scope="col" class="numero">Tempo</th>
+								<th scope="col"><span class="sr-only">Correção</span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p : ${provasMaisRecentesPrimeiro}"
+								th:data-numero="${p.numero}"
+								th:data-acertos="${p.acertos}"
+								th:data-total="${p.totalQuestoes}"
+								th:data-corte="${p.notaCorte}"
+								th:data-finalizada-em="${p.finalizadoEm}"
+								th:data-aprovado="${p.aprovado}"
+								th:data-url="@{/prova/{id}/resultado(id=${p.simuladoId})}">
+								<td class="numero" th:text="${p.numero}">6</td>
+								<td th:text="${@formatos.dataHora(p.finalizadoEm)}">19/10/2026 14:05</td>
+								<td class="numero" th:text="|${p.acertos}/${p.totalQuestoes}|">24/30</td>
+								<td>
+									<span class="situacao" th:classappend="${p.aprovado} ? 'aprovado' : 'reprovado'"
+										th:text="${p.aprovado} ? '✓ Aprovado' : '✗ Reprovado'">✓ Aprovado</span>
+								</td>
+								<td class="numero" th:text="${@formatos.relogio(p.tempoUsado())}">31:20</td>
+								<td><a th:href="@{/prova/{id}/resultado(id=${p.simuladoId})}">Ver correção</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="cartao">
+				<h2>Desempenho por subtema</h2>
+				<p class="legenda"
+					th:text="|Dos pontos mais fracos para os mais fortes. A tendência compara as últimas ${provasRecentes} provas com as anteriores.|">
+					Dos pontos mais fracos para os mais fortes.</p>
+				<div class="tabela-rolavel">
+					<table class="tabela subtemas">
+						<thead>
+							<tr>
+								<th scope="col">Subtema</th>
+								<th scope="col" class="numero">Acertos</th>
+								<th scope="col">Taxa</th>
+								<th scope="col">Tendência</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="s : ${subtemas}">
+								<td>
+									<span th:text="${s.subtema}">Placas de advertência</span>
+									<small class="disciplina" th:text="${s.disciplina}">Legislação de trânsito</small>
+								</td>
+								<td class="numero" th:text="|${s.geral.acertos}/${s.geral.total}|">4/6</td>
+								<td class="taxa">
+									<span class="trilha" aria-hidden="true">
+										<span class="preenchimento" th:style="|width: ${s.geral.percentual()}%|"
+											th:classappend="${s.geral.percentual() < 70} ? 'abaixo'"></span>
+									</span>
+									<span class="taxa-valor" th:text="|${s.geral.percentual()}%|">67%</span>
+									<small class="aviso-dados" th:if="${s.poucosDados()}">poucos dados</small>
+								</td>
+								<td th:switch="${s.tendencia().name()}">
+									<span th:case="'MELHORANDO'" class="tendencia subiu"
+										th:text="|↑ melhorando (${@formatos.comSinal(s.variacao())} pp)|">↑ melhorando</span>
+									<span th:case="'PIORANDO'" class="tendencia caiu"
+										th:text="|↓ piorando (${@formatos.comSinal(s.variacao())} pp)|">↓ piorando</span>
+									<span th:case="'ESTAVEL'" class="tendencia">= estável</span>
+									<span th:case="*" class="tendencia sem-dados">— poucas provas</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</th:block>
+	</main>
+
+	<script th:src="@{/js/historico.js}" defer></script>
+</body>
+</html>
