@@ -6,6 +6,15 @@ As mudanças que importam para quem usa o simulador ficam registradas aqui. O fo
 
 ## [Não lançado]
 
+### Adicionado
+
+- Imagem publicada no GitHub Container Registry (`ghcr.io/lucasgmontegomes/simulador-detran-mg`) a cada nova
+  versão, para processadores Intel/AMD e ARM.
+
+### Alterado
+
+- O `compose.app.yaml` passa a baixar a imagem do GitHub Container Registry.
+
 ## [1.1.0] - 2026-10-19
 
 ### Adicionado

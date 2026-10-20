@@ -49,6 +49,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      # Só confere que o Dockerfile continua gerando a imagem; a publicação no Docker Hub é manual.
+      # Só confere que o Dockerfile continua gerando a imagem; quem publica é o publicar-imagem.yml, nas tags.
       - name: Gerar a imagem
         run: docker build -t simulador-detran-mg:ci .

@@ -1,7 +1,9 @@
 # syntax=docker/dockerfile:1
 
 # ---------- 1. Compilação: JDK + Maven ----------
-FROM eclipse-temurin:25-jdk AS build
+# O jar é o mesmo em qualquer processador, então a compilação roda sempre na arquitetura de quem gera a imagem.
+# Num build multi-arquitetura, isso evita compilar o projeto de novo dentro de um arm64 emulado, que é lento.
+FROM --platform=$BUILDPLATFORM eclipse-temurin:25-jdk AS build
 WORKDIR /build
 
 COPY .mvn/ .mvn/
@@ -22,7 +24,7 @@ WORKDIR /app
 RUN groupadd --system simulador && useradd --system --gid simulador --no-create-home simulador
 
 # Uma camada por grupo, da que menos muda para a que mais muda: ao alterar só o código, as camadas de
-# dependências continuam em cache e o push para o Docker Hub envia poucos megabytes.
+# dependências continuam em cache e a publicação de uma versão nova envia poucos megabytes.
 COPY --from=build /build/extraido/dependencies/ ./
 COPY --from=build /build/extraido/spring-boot-loader/ ./
 COPY --from=build /build/extraido/snapshot-dependencies/ ./

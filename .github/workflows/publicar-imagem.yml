@@ -1,0 +1,115 @@
+name: Publicar imagem
+
+# Publica a imagem no GitHub Container Registry (a seção "Packages" do repositório) sempre que uma tag de versão
+# é enviada, como V1.2.0. Para publicar uma tag que já existia antes deste workflow, rode-o pela aba Actions
+# ("Run workflow") informando a tag.
+on:
+  push:
+    tags: ['[vV][0-9]+.[0-9]+.[0-9]+']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag da versão a publicar (ex.: V1.1.0)'
+        required: true
+        type: string
+
+# packages: write deixa o GITHUB_TOKEN publicar no ghcr.io, sem nenhum segredo cadastrado.
+permissions:
+  contents: read
+  packages: write
+
+# Duas publicações da mesma versão nunca rodam juntas: a segunda espera a primeira terminar.
+concurrency:
+  group: publicar-imagem-${{ inputs.tag || github.ref_name }}
+
+env:
+  IMAGEM: ghcr.io/lucasgmontegomes/simulador-detran-mg
+
+jobs:
+  publicar:
+    name: Publicar no ghcr.io (amd64 e arm64)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      # A tag vem do push ou de quem rodou o workflow à mão. Só passa algo como V1.2.0 ou v1.2.0.
+      - name: Conferir a tag
+        id: versao
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          if [[ ! "$TAG" =~ ^[vV][0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::A tag \"$TAG\" não é de uma versão (esperado algo como V1.2.0)."
+            exit 1
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "versao=${TAG#[vV]}" >> "$GITHUB_OUTPUT"
+
+      # Sempre o código da tag, mesmo quando o workflow é disparado à mão a partir do main.
+      - uses: actions/checkout@v7
+        with:
+          ref: refs/tags/${{ steps.versao.outputs.tag }}
+
+      # A imagem 1.2.0 tem que ter o código da versão 1.2.0: se o pom.xml ficou para trás, para aqui.
+      - name: Conferir a versão do pom.xml
+        env:
+          VERSAO: ${{ steps.versao.outputs.versao }}
+        run: |
+          pom=$(python3 -c "import xml.etree.ElementTree as ET; print(ET.parse('pom.xml').getroot().findtext('{http://maven.apache.org/POM/4.0.0}version'))")
+          if [[ "$pom" != "$VERSAO" ]]; then
+            echo "::error::O pom.xml está na versão $pom, mas a tag é da versão $VERSAO."
+            exit 1
+          fi
+
+      # A latest só acompanha a versão mais nova: republicar uma versão antiga não pode fazê-la voltar.
+      - name: Conferir se é a versão mais nova
+        id: latest
+        env:
+          VERSAO: ${{ steps.versao.outputs.versao }}
+        run: |
+          mais_nova=$(git ls-remote --tags --refs origin \
+            | sed -n 's#.*refs/tags/[vV]\([0-9]\+\.[0-9]\+\.[0-9]\+\)$#\1#p' \
+            | sort -V | tail -n 1)
+          if [[ "$VERSAO" == "$mais_nova" ]]; then
+            echo "valor=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "valor=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::A versão mais nova é a $mais_nova; a latest continua apontando para ela."
+          fi
+
+      # O QEMU emula o arm64 só nos passos da imagem final; a compilação Java roda nativa (veja o Dockerfile).
+      - uses: docker/setup-qemu-action@v4
+      - uses: docker/setup-buildx-action@v4
+
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Tags da imagem e rótulos OCI. O rótulo "source" liga o pacote a este repositório, e a descrição e a
+      # licença vêm das configurações do repositório. Com context: git, o commit dos rótulos é o da tag.
+      - id: meta
+        uses: docker/metadata-action@v6
+        env:
+          # Numa imagem multi-arquitetura, a página do pacote lê a descrição do índice, não de cada manifest.
+          DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
+        with:
+          context: git
+          images: ${{ env.IMAGEM }}
+          flavor: latest=false
+          tags: |
+            type=semver,pattern={{version}},value=${{ steps.versao.outputs.versao }}
+            type=raw,value=latest,enable=${{ steps.latest.outputs.valor }}
+
+      # context: . usa os arquivos do checkout acima. Sem ele, o BuildKit baixaria o código do ref que disparou
+      # o workflow, que no "Run workflow" é o main, e não a tag.
+      - uses: docker/build-push-action@v7
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          annotations: ${{ steps.meta.outputs.annotations }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
