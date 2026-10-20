@@ -21,7 +21,7 @@ public class Formatos {
 	private static final DateTimeFormatter DATA_HORA = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm", PT_BR)
 		.withZone(ZoneId.systemDefault());
 
-	/** {@code 1:05} para um minuto e cinco segundos; {@code 40:00} para a prova inteira. */
+	/** {@code 1:05} para um minuto e cinco segundos; {@code 60:00} para a prova inteira. */
 	public String relogio(Duration duracao) {
 		if (duracao == null) {
 			return "—";
