@@ -165,6 +165,14 @@ src/main/resources
 └── static/        CSS e JavaScript
 ```
 
+## Contribuindo
+
+- Achou um gabarito errado ou uma regra desatualizada? Abra uma issue pelo formulário
+  [Erro em uma questão](https://github.com/LucasGMonteGomes/simulador-detran-mg/issues/new?template=erro-em-questao.yml).
+- Para revisar ou escrever questões, ou mexer no código, veja o [guia de contribuição](.github/CONTRIBUTING.md).
+- Falhas de segurança seguem a [política de segurança](.github/SECURITY.md), nunca uma issue pública.
+- O que mudou em cada versão está no [CHANGELOG](CHANGELOG.md).
+
 ## Aviso
 
 As questões foram geradas com ajuda de IA a partir do texto oficial do CTB e de materiais do curso teórico. Elas

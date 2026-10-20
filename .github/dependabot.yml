@@ -1,0 +1,32 @@
+# Dependabot abre pull requests com atualizações; o workflow de testes roda em cada um antes do merge.
+#
+# Imagens Docker (Dockerfile e compose) ficam de fora de propósito: as tags já acompanham as correções da mesma
+# versão (eclipse-temurin:25-jre, postgres:18), e trocar de versão principal é decisão manual (nova LTS do Java;
+# no PostgreSQL, exige migrar os dados).
+version: 2
+updates:
+  - package-ecosystem: maven
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 5
+    groups:
+      # Correções e versões menores (inclusive do Spring Boot) chegam juntas em um único PR por semana.
+      # Versões principais continuam vindo em PRs separados, para serem avaliadas uma a uma.
+      maven-menores:
+        patterns: ["*"]
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: America/Sao_Paulo
+    groups:
+      github-actions:
+        patterns: ["*"]
