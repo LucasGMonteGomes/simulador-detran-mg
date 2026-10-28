@@ -3,7 +3,7 @@ subtema: conceitos-defensiva
 origem: ia
 questoes:
   - codigo: DDC-001
-    revisada: false
+    revisada: true
     enunciado: >
       Direção defensiva é:
     alternativas:
@@ -20,7 +20,7 @@ questoes:
     referencia: Manual de Direção Defensiva (DENATRAN)
 
   - codigo: DDC-002
-    revisada: false
+    revisada: true
     enunciado: >
       São elementos da direção defensiva:
     alternativas:
@@ -36,7 +36,7 @@ questoes:
     referencia: Manual de Direção Defensiva (DENATRAN)
 
   - codigo: DDC-003
-    revisada: false
+    revisada: true
     enunciado: >
       Segundo o Código de Trânsito Brasileiro, o condutor deverá, a todo momento:
     alternativas:
@@ -57,7 +57,7 @@ questoes:
       indispensáveis à segurança do trânsito.
 
   - codigo: DDC-004
-    revisada: false
+    revisada: true
     enunciado: >
       A capacidade de antecipar situações de risco, imaginando o que pode acontecer à frente para agir
       a tempo, corresponde ao elemento da direção defensiva chamado:

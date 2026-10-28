@@ -6,6 +6,11 @@ As mudanças que importam para quem usa o simulador ficam registradas aqui. O fo
 
 ## [Não lançado]
 
+### Alterado
+
+- As 60 questões do banco passam a ser usadas no Modo Prova (`revisada: true`). Antes, a imagem publicada
+  mostrava "Ainda não dá para montar uma prova".
+
 ## [1.1.1] - 2026-10-20
 
 ### Adicionado

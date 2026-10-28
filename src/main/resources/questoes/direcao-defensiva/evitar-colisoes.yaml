@@ -3,7 +3,7 @@ subtema: evitar-colisoes
 origem: ia
 questoes:
   - codigo: DDE-001
-    revisada: false
+    revisada: true
     enunciado: >
       Uma forma prática de manter distância segura do veículo da frente, em pista seca, é a "regra dos
       dois segundos". Ela consiste em:
@@ -22,7 +22,7 @@ questoes:
     referencia: Manual de Direção Defensiva (DENATRAN)
 
   - codigo: DDE-002
-    revisada: false
+    revisada: true
     enunciado: >
       Segundo o CTB, a distância de segurança lateral e frontal que o condutor deve guardar em relação
       aos demais veículos depende:
@@ -43,7 +43,7 @@ questoes:
       condições climáticas
 
   - codigo: DDE-003
-    revisada: false
+    revisada: true
     enunciado: >
       Em regra, a ultrapassagem de outro veículo em movimento deve ser feita:
     alternativas:
@@ -62,7 +62,7 @@ questoes:
     trecho_fonte: a ultrapassagem de outro veículo em movimento deverá ser feita pela esquerda
 
   - codigo: DDE-004
-    revisada: false
+    revisada: true
     enunciado: >
       Você está na faixa da esquerda e percebe que o veículo de trás quer ultrapassá-lo. Você deve:
     alternativas:
@@ -78,7 +78,7 @@ questoes:
     trecho_fonte: se estiver circulando pela faixa da esquerda, deslocar-se para a faixa da direita, sem acelerar a marcha
 
   - codigo: DDE-005
-    revisada: false
+    revisada: true
     enunciado: >
       Antes de mudar de faixa, além de olhar os retrovisores e sinalizar, o condutor deve:
     alternativas:

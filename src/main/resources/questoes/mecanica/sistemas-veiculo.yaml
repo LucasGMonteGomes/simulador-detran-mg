@@ -3,7 +3,7 @@ subtema: sistemas-veiculo
 origem: ia
 questoes:
   - codigo: MES-001
-    revisada: false
+    revisada: true
     enunciado: >
       A principal função do sistema de freios ABS é:
     alternativas:
@@ -20,7 +20,7 @@ questoes:
     referencia: Res. CONTRAN 789/2020 - curso teórico, funcionamento do veículo
 
   - codigo: MES-002
-    revisada: false
+    revisada: true
     enunciado: >
       O ponteiro de temperatura do motor sobe acima do normal durante o trajeto. O condutor deve:
     alternativas:

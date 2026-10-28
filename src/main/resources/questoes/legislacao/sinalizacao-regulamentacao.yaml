@@ -3,7 +3,7 @@ subtema: sinalizacao-regulamentacao
 origem: ia
 questoes:
   - codigo: SRE-001
-    revisada: false
+    revisada: true
     enunciado: >
       As placas de regulamentação têm como finalidade:
     alternativas:
@@ -21,7 +21,7 @@ questoes:
     referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. I (Regulamentação)
 
   - codigo: SRE-002
-    revisada: false
+    revisada: true
     enunciado: >
       A placa R-1 (Parada obrigatória) se diferencia das demais placas de regulamentação por ter formato:
     alternativas:

@@ -3,7 +3,7 @@ subtema: usuarios-vulneraveis
 origem: ia
 questoes:
   - codigo: DDV-001
-    revisada: false
+    revisada: true
     enunciado: >
       Em uma faixa de pedestres sem semáforo, o pedestre que estiver atravessando:
     alternativas:
@@ -22,7 +22,7 @@ questoes:
       prioridade de passagem
 
   - codigo: DDV-002
-    revisada: false
+    revisada: true
     enunciado: >
       Ao passar ou ultrapassar uma bicicleta, o condutor deve guardar uma distância lateral mínima de:
     alternativas:
@@ -41,7 +41,7 @@ questoes:
       bicicleta
 
   - codigo: DDV-003
-    revisada: false
+    revisada: true
     enunciado: >
       Segundo o CTB, quanto à responsabilidade pela segurança no trânsito:
     alternativas:

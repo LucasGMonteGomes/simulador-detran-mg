@@ -3,7 +3,7 @@ subtema: manutencao-painel
 origem: ia
 questoes:
   - codigo: MEM-001
-    revisada: false
+    revisada: true
     enunciado: >
       A luz de advertência da pressão do óleo acende no painel com o motor em funcionamento. O condutor
       deve:
@@ -19,7 +19,7 @@ questoes:
     referencia: Res. CONTRAN 789/2020 - curso teórico, funcionamento do veículo
 
   - codigo: MEM-002
-    revisada: false
+    revisada: true
     enunciado: >
       A profundidade mínima dos sulcos da banda de rodagem, abaixo da qual o pneu não pode mais ser
       usado, é de:

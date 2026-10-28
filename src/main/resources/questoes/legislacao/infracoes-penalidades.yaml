@@ -3,7 +3,7 @@ subtema: infracoes-penalidades
 origem: ia
 questoes:
   - codigo: INF-001
-    revisada: false
+    revisada: true
     enunciado: >
       O condutor que soma 30 pontos em 12 meses, sendo uma das infrações gravíssima, terá o direito
       de dirigir:
@@ -21,7 +21,7 @@ questoes:
     trecho_fonte: 30 (trinta) pontos, caso conste 1 (uma) infração gravíssima na pontuação
 
   - codigo: INF-002
-    revisada: false
+    revisada: true
     enunciado: >
       Dirigir sob a influência de álcool é infração:
     alternativas:
@@ -38,7 +38,7 @@ questoes:
     trecho_fonte: Penalidade - multa (dez vezes) e suspensão do direito de dirigir por 12 (doze) meses.
 
   - codigo: INF-003
-    revisada: false
+    revisada: true
     enunciado: >
       Dirigir segurando ou manuseando o telefone celular é infração:
     alternativas:
@@ -56,7 +56,7 @@ questoes:
       telefone celular
 
   - codigo: INF-004
-    revisada: false
+    revisada: true
     enunciado: >
       Quantos pontos são computados no prontuário do condutor por uma infração grave?
     alternativas:

@@ -3,7 +3,7 @@ subtema: sinalizacao-acidente
 origem: ia
 questoes:
   - codigo: PSS-001
-    revisada: false
+    revisada: true
     enunciado: >
       Ao chegar ao local de um acidente com vítimas, a primeira providência deve ser:
     alternativas:
@@ -19,7 +19,7 @@ questoes:
     referencia: Res. CONTRAN 789/2020 - curso teórico, noções de primeiros socorros
 
   - codigo: PSS-002
-    revisada: false
+    revisada: true
     enunciado: >
       Para pedir socorro em um acidente com vítimas, os números de emergência do SAMU e do Corpo de
       Bombeiros são, respectivamente:

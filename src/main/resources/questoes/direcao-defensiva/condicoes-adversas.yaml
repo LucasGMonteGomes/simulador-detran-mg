@@ -3,7 +3,7 @@ subtema: condicoes-adversas
 origem: ia
 questoes:
   - codigo: DDA-001
-    revisada: false
+    revisada: true
     enunciado: >
       Ao dirigir durante o dia sob neblina, o condutor deve:
     alternativas:
@@ -20,7 +20,7 @@ questoes:
     trecho_fonte: mesmo durante o dia, em túneis e sob chuva, neblina ou cerração
 
   - codigo: DDA-002
-    revisada: false
+    revisada: true
     enunciado: >
       Em uma aquaplanagem, quando os pneus perdem o contato com o asfalto por causa de uma lâmina de
       água, a atitude correta é:
@@ -38,7 +38,7 @@ questoes:
     referencia: Manual de Direção Defensiva (DENATRAN)
 
   - codigo: DDA-003
-    revisada: false
+    revisada: true
     enunciado: >
       À noite, ao ser ofuscado pelo farol de um veículo que vem em sentido contrário, o condutor deve:
     alternativas:
@@ -53,7 +53,7 @@ questoes:
     referencia: Manual de Direção Defensiva (DENATRAN)
 
   - codigo: DDA-004
-    revisada: false
+    revisada: true
     enunciado: >
       Chuva forte, neblina e vento lateral são exemplos de condições adversas de:
     alternativas:

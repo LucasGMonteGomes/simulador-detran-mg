@@ -3,7 +3,7 @@ subtema: sinalizacao-horizontal
 origem: ia
 questoes:
   - codigo: SHO-001
-    revisada: false
+    revisada: true
     enunciado: >
       Uma linha contínua amarela no centro da pista, separando fluxos de sentidos opostos, indica que:
     alternativas:
@@ -19,7 +19,7 @@ questoes:
     referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. IV (Sinalização Horizontal)
 
   - codigo: SHO-002
-    revisada: false
+    revisada: true
     enunciado: >
       Na sinalização horizontal, as linhas longitudinais brancas são usadas para:
     alternativas:

@@ -3,7 +3,7 @@ subtema: habilitacao
 origem: ia
 questoes:
   - codigo: HAB-001
-    revisada: false
+    revisada: true
     enunciado: >
       Ao ser aprovado em todos os exames do processo de habilitação, o candidato recebe:
     alternativas:
@@ -19,7 +19,7 @@ questoes:
     trecho_fonte: Ao candidato aprovado será conferida Permissão para Dirigir, com validade de um ano.
 
   - codigo: HAB-002
-    revisada: false
+    revisada: true
     enunciado: >
       O condutor com Permissão para Dirigir receberá a CNH definitiva ao fim de um ano, desde que,
       nesse período, não tenha:
@@ -39,7 +39,7 @@ questoes:
       reincidente em infração média
 
   - codigo: HAB-003
-    revisada: false
+    revisada: true
     enunciado: >
       Um condutor habilitado apenas na categoria B pode dirigir:
     alternativas:

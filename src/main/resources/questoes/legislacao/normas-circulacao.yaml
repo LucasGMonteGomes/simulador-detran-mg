@@ -3,7 +3,7 @@ subtema: normas-circulacao
 origem: ia
 questoes:
   - codigo: CIR-001
-    revisada: false
+    revisada: true
     enunciado: >
       Em uma via urbana coletora sem sinalização de velocidade, a velocidade máxima permitida é de:
     alternativas:
@@ -19,7 +19,7 @@ questoes:
     trecho_fonte: quarenta quilômetros por hora, nas vias coletoras
 
   - codigo: CIR-002
-    revisada: false
+    revisada: true
     enunciado: >
       Ao chegar a uma rotatória sem sinalização, quem tem a preferência de passagem?
     alternativas:
@@ -35,7 +35,7 @@ questoes:
     trecho_fonte: no caso de rotatória, aquele que estiver circulando por ela
 
   - codigo: CIR-003
-    revisada: false
+    revisada: true
     enunciado: >
       Sobre o uso do cinto de segurança, é correto afirmar que ele é obrigatório:
     alternativas:
@@ -55,7 +55,7 @@ questoes:
       território nacional
 
   - codigo: CIR-004
-    revisada: false
+    revisada: true
     enunciado: >
       Uma criança de 8 anos, com 1,30 m de altura, deve ser transportada:
     alternativas:

@@ -3,7 +3,7 @@ subtema: cuidados-vitima
 origem: ia
 questoes:
   - codigo: PSC-001
-    revisada: false
+    revisada: true
     enunciado: >
       Um motociclista caiu e está consciente, ainda de capacete. O correto é:
     alternativas:
@@ -18,7 +18,7 @@ questoes:
     referencia: Res. CONTRAN 789/2020 - curso teórico, noções de primeiros socorros
 
   - codigo: PSC-002
-    revisada: false
+    revisada: true
     enunciado: >
       Em relação à vítima de um acidente, o socorrista leigo NÃO deve:
     alternativas:

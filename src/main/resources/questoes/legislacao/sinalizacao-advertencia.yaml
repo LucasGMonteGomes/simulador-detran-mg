@@ -3,7 +3,7 @@ subtema: sinalizacao-advertencia
 origem: ia
 questoes:
   - codigo: SAD-001
-    revisada: false
+    revisada: true
     enunciado: >
       As placas de advertência, em sua maioria, têm:
     alternativas:
@@ -19,7 +19,7 @@ questoes:
     referencia: Manual Brasileiro de Sinalização de Trânsito, Vol. II (Advertência)
 
   - codigo: SAD-002
-    revisada: false
+    revisada: true
     enunciado: >
       Ao avistar uma placa de advertência, o condutor deve:
     alternativas:
