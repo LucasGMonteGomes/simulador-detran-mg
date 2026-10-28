@@ -3,7 +3,7 @@ subtema: veiculos
 origem: ia
 questoes:
   - codigo: VEI-001
-    revisada: false
+    revisada: true
     enunciado: >
       Para transitar na via, todo veículo automotor deve ser licenciado:
     alternativas:

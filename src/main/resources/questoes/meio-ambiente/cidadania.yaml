@@ -3,7 +3,7 @@ subtema: cidadania
 origem: ia
 questoes:
   - codigo: MAC-001
-    revisada: false
+    revisada: true
     enunciado: >
       De acordo com o CTB, o trânsito em condições seguras é:
     alternativas:
@@ -21,7 +21,7 @@ questoes:
       do Sistema Nacional de Trânsito
 
   - codigo: MAC-002
-    revisada: false
+    revisada: true
     enunciado: >
       Estacionar nas vagas reservadas às pessoas com deficiência ou idosos sem a credencial que comprove
       essa condição é infração:
@@ -40,7 +40,7 @@ questoes:
       condição: Infração - gravíssima;
 
   - codigo: MAC-003
-    revisada: false
+    revisada: true
     enunciado: >
       Uma ambulância com a sirene e as luzes intermitentes acionadas se aproxima por trás. Todos os
       condutores devem:

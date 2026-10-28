@@ -3,7 +3,7 @@ subtema: estado-condutor
 origem: ia
 questoes:
   - codigo: DDS-001
-    revisada: false
+    revisada: true
     enunciado: >
       Mesmo em pequena quantidade, o álcool prejudica o condutor porque:
     alternativas:
@@ -19,7 +19,7 @@ questoes:
     referencia: Manual de Direção Defensiva (DENATRAN)
 
   - codigo: DDS-002
-    revisada: false
+    revisada: true
     enunciado: >
       Ao sentir sono durante uma viagem, a atitude mais segura é:
     alternativas:
@@ -34,7 +34,7 @@ questoes:
     referencia: Manual de Direção Defensiva (DENATRAN)
 
   - codigo: DDS-003
-    revisada: false
+    revisada: true
     enunciado: >
       Antes de dirigir depois de tomar um medicamento, como um antialérgico ou um calmante, o condutor
       deve:
@@ -51,7 +51,7 @@ questoes:
     referencia: Manual de Direção Defensiva (DENATRAN)
 
   - codigo: DDS-004
-    revisada: false
+    revisada: true
     enunciado: >
       Um condutor muito irritado depois de uma discussão precisa dirigir. A atitude mais segura é:
     alternativas:

@@ -3,7 +3,7 @@ subtema: poluicao
 origem: ia
 questoes:
   - codigo: MAP-001
-    revisada: false
+    revisada: true
     enunciado: >
       Transitar com o veículo produzindo fumaça, gases ou partículas em níveis superiores aos fixados
       pelo CONTRAN é infração:
@@ -20,7 +20,7 @@ questoes:
     trecho_fonte: produzindo fumaça, gases ou partículas em níveis superiores aos fixados pelo CONTRAN
 
   - codigo: MAP-002
-    revisada: false
+    revisada: true
     enunciado: >
       Atirar do veículo ou abandonar na via objetos ou substâncias é:
     alternativas:
@@ -37,7 +37,7 @@ questoes:
       Atirar do veículo ou abandonar na via objetos ou substâncias: Infração - média;
 
   - codigo: MAP-003
-    revisada: false
+    revisada: true
     enunciado: >
       Usar no veículo equipamento de som em volume ou frequência não autorizados pelo CONTRAN é:
     alternativas:

@@ -3,7 +3,7 @@ subtema: sinalizacao-luminosa-gestos
 origem: ia
 questoes:
   - codigo: SLG-001
-    revisada: false
+    revisada: true
     enunciado: >
       O semáforo está verde para você, mas o agente de trânsito no cruzamento faz sinal para que você
       pare. O que prevalece?
@@ -20,7 +20,7 @@ questoes:
     trecho_fonte: as ordens do agente de trânsito sobre as normas de circulação e outros sinais
 
   - codigo: SLG-002
-    revisada: false
+    revisada: true
     enunciado: >
       O agente de trânsito com o braço levantado verticalmente e a palma da mão para a frente indica:
     alternativas:
@@ -35,7 +35,7 @@ questoes:
     referencia: Anexo II do CTB (sinalização) - gestos dos agentes de trânsito
 
   - codigo: SLG-003
-    revisada: false
+    revisada: true
     enunciado: >
       Durante a fiscalização, o agente de trânsito emite dois silvos breves de apito. Isso significa:
     alternativas:

@@ -3,7 +3,7 @@ subtema: sinalizacao-indicacao
 origem: ia
 questoes:
   - codigo: SIN-001
-    revisada: false
+    revisada: true
     enunciado: >
       As placas que identificam vias, destinos e locais de interesse, e orientam o condutor sobre
       percursos e distâncias, são as placas de:

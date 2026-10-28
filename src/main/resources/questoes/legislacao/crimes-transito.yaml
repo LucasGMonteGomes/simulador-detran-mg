@@ -3,7 +3,7 @@ subtema: crimes-transito
 origem: ia
 questoes:
   - codigo: CRI-001
-    revisada: false
+    revisada: true
     enunciado: >
       Conduzir veículo automotor com a capacidade psicomotora alterada pela influência de álcool, além
       de infração, é crime de trânsito com pena de:
@@ -25,7 +25,7 @@ questoes:
       ou a habilitação para dirigir veículo automotor.
 
   - codigo: CRI-002
-    revisada: false
+    revisada: true
     enunciado: >
       Sobre o crime de omissão de socorro cometido pelo condutor envolvido em um sinistro, é correto
       afirmar que:
