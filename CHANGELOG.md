@@ -6,12 +6,7 @@ As mudanças que importam para quem usa o simulador ficam registradas aqui. O fo
 
 ## [Não lançado]
 
-### Alterado
-
-- As 60 questões do banco passam a ser usadas no Modo Prova (`revisada: true`). Antes, a imagem publicada
-  mostrava "Ainda não dá para montar uma prova".
-
-## [1.1.1] - 2026-10-20
+## [1.1.1] - 2026-10-28
 
 ### Adicionado
 
@@ -20,6 +15,8 @@ As mudanças que importam para quem usa o simulador ficam registradas aqui. O fo
 
 ### Alterado
 
+- As 60 questões do banco passam a ser usadas no Modo Prova (`revisada: true`). Antes, a imagem publicada
+  mostrava "Ainda não dá para montar uma prova".
 - O `compose.app.yaml` passa a baixar a imagem do GitHub Container Registry.
 - README com um passo a passo de instalação para Windows, macOS e Linux, comandos curtos (o arquivo é salvo como
   `compose.yaml`), configuração da porta e da versão pelo `.env` e soluções para os erros mais comuns.
